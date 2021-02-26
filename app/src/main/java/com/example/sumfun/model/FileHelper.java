@@ -23,6 +23,8 @@ public class FileHelper {
     public User getUser() {
         return user;
     }
+
+
     public void saveUser(){
         String filename="SumFunSavedUser.txt";
         Gson gson = new Gson();
@@ -39,15 +41,19 @@ public class FileHelper {
     public static User loadUser(){
         String userData= null;
         String filename="SumFunSavedUser.txt";
+        User savedUser= new User();
         try{
             byte[] encoded = Files.readAllBytes(Paths.get(filename));
             userData = new String(encoded, "UTF-8");
         } catch (IOException e) {
+            //getUser();
             e.printStackTrace();
+            return savedUser;
+
         }
 
         Gson gson = new Gson();
-        User savedUser = gson.fromJson(userData, User.class);
+        savedUser = gson.fromJson(userData, User.class);
         Log.d("logD", "loadUser: "+savedUser);
 
         return savedUser;

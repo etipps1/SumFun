@@ -2,18 +2,18 @@ package com.example.sumfun.model;
 
 import android.util.Log;
 
-import com.example.sumfun.presenter.Presenter;
+import com.example.sumfun.presenter.MainPresenter;
 
 public class User {
     private int currentLevel =1;
     private int count=1;
     private String operator="+";
     private int starCount=0;
-    private Presenter presenter;
+    private MainPresenter presenter;
 
     public User(){}
 
-    public User(Presenter presenter){
+    public User(MainPresenter presenter){
         this.presenter=presenter;
     }
     public void saveUser(User user){
@@ -61,11 +61,11 @@ public class User {
         this.starCount = starCount;
     }
 
-    public Presenter getPresenter() {
+    public MainPresenter getPresenter() {
         return presenter;
     }
 
-    public void setPresenter(Presenter presenter) {
+    public void setPresenter(MainPresenter presenter) {
         this.presenter = presenter;
     }
 }

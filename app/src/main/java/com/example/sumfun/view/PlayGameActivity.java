@@ -4,16 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sumfun.R;
-import com.example.sumfun.presenter.Presenter;
+import com.example.sumfun.presenter.MainPresenter;
+import com.example.sumfun.presenter.PlayGamePresenter;
 
 public class PlayGameActivity extends AppCompatActivity {
-    private Presenter presenter;
+    private PlayGamePresenter playGamePresenter;
     //for playGameActivity
 
     private TextView first_num;
@@ -39,7 +41,15 @@ public class PlayGameActivity extends AppCompatActivity {
        // second_num.setText(rand);
        // first_num.setText(curLevel);
         //operator.setText();
-       // presenter = new Presenter(this);
+       playGamePresenter = new PlayGamePresenter(this);
+       check.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               handleCheckBtn();
+           }
+       });
+
+       playGamePresenter.activateGame();
 
 
     }
@@ -48,4 +58,15 @@ public class PlayGameActivity extends AppCompatActivity {
         toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
         toast.show();
     }
+    public void showEquation(int first, String op, int second){
+        first_num.setText(String.valueOf(first));
+        operator.setText(op);
+        second_num.setText(String.valueOf(second));
+
+    }
+    public void handleCheckBtn(){
+        playGamePresenter.checkResponse();
+
+    }
+
 }

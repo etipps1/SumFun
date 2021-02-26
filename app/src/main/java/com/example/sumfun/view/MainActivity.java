@@ -12,10 +12,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sumfun.R;
-import com.example.sumfun.presenter.Presenter;
+import com.example.sumfun.presenter.MainPresenter;
 
 public class MainActivity extends AppCompatActivity {
-    private Presenter presenter;
+    private MainPresenter mainPresenter;
 
     private Button bPlay;
     private TextView welcome;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         welcome = findViewById(R.id.welcome);
         star=findViewById(R.id.star);
 
-        presenter = new Presenter(this);
+        mainPresenter = new MainPresenter(this);
 
         bPlay.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        presenter.activateMenu();
+        mainPresenter.activateMenu();
 
     }
     public void handlePlayButton(){
