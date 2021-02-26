@@ -9,6 +9,8 @@ public class User {
     private int starCount;
     private Presenter presenter;
 
+    public User(){}
+
     public User(Presenter presenter){
         this.presenter=presenter;
     }

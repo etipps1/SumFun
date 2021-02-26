@@ -9,8 +9,9 @@ public class Presenter {
 
     public Presenter(MainActivity mainActivity){
         this.mainActivity=mainActivity;
-        user = new User(this);
-        user.loadUser();
+        user= new User();
+        //user = new User(this);
+        //user.loadUser();
     }
     public void saveData(){
         user.saveUser();

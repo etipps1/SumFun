@@ -3,6 +3,7 @@ package com.example.sumfun.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,8 @@ public class PlayGameActivity extends AppCompatActivity {
         gameScreen=findViewById(R.id.GameScreen);
     }
     public void displayToast(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+        Toast toast=Toast.makeText(this, message, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+        toast.show();
     }
 }
