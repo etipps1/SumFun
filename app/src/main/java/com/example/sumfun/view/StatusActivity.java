@@ -8,6 +8,7 @@ import com.example.sumfun.presenter.Presenter;
 
 public class StatusActivity extends AppCompatActivity {
     private Presenter presenter;
+    private int starCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
