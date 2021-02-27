@@ -8,7 +8,7 @@ import com.example.sumfun.view.PlayGameActivity;
 public class PlayGamePresenter {
     private PlayGameActivity playGameActivity;
     private User user;
-    int randomInt=(int)(Math.random()*10);
+    int randomInt;
     int count;
     int currentLevel;
     String op;
@@ -34,6 +34,7 @@ public class PlayGamePresenter {
         playGameActivity.displayToast("Let's begin at level "+user.getCurrentLevel());
     }
     public void submitEquation(){
+        randomInt=(int)(Math.random()*10);
        playGameActivity.showEquation(currentLevel, op, randomInt);
 
     }

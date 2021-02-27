@@ -25,6 +25,7 @@ public class PlayGameActivity extends AppCompatActivity {
     private EditText response;
     //private int curLevel;
     Button check;
+    Button next;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class PlayGameActivity extends AppCompatActivity {
         equals=findViewById(R.id.equals);
         response=findViewById(R.id.response);
         check=findViewById(R.id.check);
+        next=findViewById(R.id.next);
 
        // second_num.setText(rand);
        // first_num.setText(curLevel);
@@ -45,6 +47,13 @@ public class PlayGameActivity extends AppCompatActivity {
            @Override
            public void onClick(View v) {
                handleCheckBtn();
+           }
+       });
+
+       next.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               handleNextBtn();
            }
        });
 
@@ -68,6 +77,18 @@ public class PlayGameActivity extends AppCompatActivity {
         String secNum= second_num.getText().toString();
         int second=Integer.parseInt(secNum);
         playGamePresenter.checkResponse(second, resp);
+
+    }
+    public void clearText(){
+        first_num.setText("");
+        operator.setText("");
+        second_num.setText("");
+        response.setText("");
+
+    }
+    public void handleNextBtn(){
+        clearText();
+        playGamePresenter.submitEquation();
 
     }
 
