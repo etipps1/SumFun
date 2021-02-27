@@ -18,7 +18,7 @@ public class MainPresenter {
             user= new User();
         }
         else {*/
-            user = new User(this);
+            user = new User();
             user.loadUser();
        // }
     }

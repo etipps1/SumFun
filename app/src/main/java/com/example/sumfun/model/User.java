@@ -19,7 +19,7 @@ public class User {
 
     public User(){}
 
-    public User(MainPresenter presenter){
+   /* public User(MainPresenter presenter){
         this.presenter=presenter;
     }
     public User(PlayGamePresenter playGamePresenter){
@@ -27,7 +27,7 @@ public class User {
     }
     public User(StatusPresenter statusPresenter){
         this.statusPresenter=statusPresenter;
-    }
+    }*/
     public void saveUser(User user){
         FileHelper fH= new FileHelper(user);
         fH.saveUser();

@@ -10,6 +10,7 @@
     <string name="next">next</string>
     <string name="stars">stars</string>
     <string name="hello">Hello!</string>
+    <string name="star_message">Your stars</string>
 
 
 </resources>

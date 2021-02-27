@@ -40,6 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        star.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                handleStarClicked();
+            }
+        });
         mainPresenter.activateMenu();
 
     }
@@ -49,9 +56,16 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+    public void handleStarClicked()
+    {
+        Log.d("logD", "handleStarClicked: inside");
+        Intent intent = new Intent(this, StatusActivity.class);
+        startActivity(intent);
+
+    }
     public void displayToast(String message){
         Toast toast=Toast.makeText(this, message, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
+       // toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
         toast.show();
     }
 
