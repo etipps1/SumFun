@@ -6,31 +6,24 @@ import com.example.sumfun.presenter.MainPresenter;
 import com.example.sumfun.presenter.PlayGamePresenter;
 import com.example.sumfun.presenter.StatusPresenter;
 
-import javax.net.ssl.SSLEngineResult;
+
 
 public class User {
     private int currentLevel =1;
-    private int count=1;
+    private int count=0;
     private String operator="+";
     private int starCount=0;
+    private int countCorrect=0;
     private MainPresenter presenter;
     private PlayGamePresenter playGamePresenter;
     private StatusPresenter statusPresenter;
 
     public User(){}
 
-   /* public User(MainPresenter presenter){
-        this.presenter=presenter;
-    }
-    public User(PlayGamePresenter playGamePresenter){
-        this.playGamePresenter=playGamePresenter;
-    }
-    public User(StatusPresenter statusPresenter){
-        this.statusPresenter=statusPresenter;
-    }*/
     public void saveUser(User user){
+        Log.d("logD", "saveUser:inside ");
         FileHelper fH= new FileHelper(user);
-        fH.saveUser();
+        fH.saveUser(user);
 
     }
     public void loadUser(){
@@ -79,5 +72,13 @@ public class User {
 
     public void setPresenter(MainPresenter presenter) {
         this.presenter = presenter;
+    }
+
+    public int getCountCorrect() {
+        return countCorrect;
+    }
+
+    public void setCountCorrect(int countCorrect) {
+        this.countCorrect = countCorrect;
     }
 }

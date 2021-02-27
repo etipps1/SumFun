@@ -9,9 +9,11 @@ public class PlayGamePresenter {
     private PlayGameActivity playGameActivity;
     private User user;
     int randomInt;
-    int count;
+    int countLoop;
     int currentLevel;
     String op;
+    int starCount;
+    int countCorrect;
 
 
 
@@ -19,19 +21,24 @@ public class PlayGamePresenter {
         this.playGameActivity=playGameActivity;
         user = new User();
         user.loadUser();
-        count= user.getCount();
+        countLoop= user.getCount();
         currentLevel=user.getCurrentLevel();
         op=user.getOperator();
+        starCount=user.getStarCount();
+        countCorrect=user.getCountCorrect();
     }
 
-    public void saveData(User user){
+    public void saveData(){
+        Log.d("logD", "saveData:inside ");
         user.saveUser(user);
     }
+
+
     //activate game
     public void activateGame(){
         //display correct things on screen
         Log.d("logD", "activateMenu: ");
-        playGameActivity.displayToast("Let's begin at level "+user.getCurrentLevel());
+        playGameActivity.displayToast("Let's begin at level "+ user.getCurrentLevel());
     }
     public void submitEquation(){
        randomInt=(int)(Math.random()*10);
@@ -43,9 +50,19 @@ public class PlayGamePresenter {
             playGameActivity.displayToast("Enter a number");
         }
         else {
+            Log.d("logD", "checkResponse:before else "+ countLoop);
             int parsedResponse = Integer.valueOf(response);
-            Addition addition= new Addition(currentLevel, second, parsedResponse);
+            Addition addition= new Addition(currentLevel, second, parsedResponse, countLoop,countCorrect);
             String toastText = addition.addLevel();
+            //get correctCount from Addition
+            int updatedCount = addition.getCountLoop();
+            Log.d("logD", "checkResponse:updatedCount "+ updatedCount);
+            countLoop=updatedCount;
+            Log.d("logD", "checkResponse:countCorrect "+ countCorrect);
+            int updatedCountCorrect= addition.getCountCorrect();
+            //set localCount to correctCount
+            countCorrect=updatedCountCorrect;
+
             playGameActivity.displayToast(toastText);
 
         }

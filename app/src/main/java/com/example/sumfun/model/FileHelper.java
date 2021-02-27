@@ -25,10 +25,12 @@ public class FileHelper {
     }
 
 
-    public void saveUser(){
+    public void saveUser(User user){
         String filename="SumFunSavedUser.txt";
         Gson gson = new Gson();
+        Log.d("logD", "saveUser: inside FH");
         String userData = gson.toJson(user);
+        Log.d("logD", "saveUser: "+ userData);
         try(Writer w = new BufferedWriter(new OutputStreamWriter( new FileOutputStream(filename), "UTF-8"))) {
             w.write(userData);
         } catch (FileNotFoundException e) {
