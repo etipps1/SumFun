@@ -23,8 +23,7 @@ public class PlayGameActivity extends AppCompatActivity {
     private TextView second_num;
     private TextView equals;
     private EditText response;
-    private int rand;
-    private int curLevel;
+    //private int curLevel;
     Button check;
 
     @Override
@@ -64,8 +63,11 @@ public class PlayGameActivity extends AppCompatActivity {
         second_num.setText(String.valueOf(second));
 
     }
-    public void handleCheckBtn(){
-        playGamePresenter.checkResponse();
+    public void handleCheckBtn() {
+        String resp = response.getText().toString();
+        String secNum= second_num.getText().toString();
+        int second=Integer.parseInt(secNum);
+        playGamePresenter.checkResponse(second, resp);
 
     }
 

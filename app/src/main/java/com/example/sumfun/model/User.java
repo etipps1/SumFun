@@ -3,6 +3,10 @@ package com.example.sumfun.model;
 import android.util.Log;
 
 import com.example.sumfun.presenter.MainPresenter;
+import com.example.sumfun.presenter.PlayGamePresenter;
+import com.example.sumfun.presenter.StatusPresenter;
+
+import javax.net.ssl.SSLEngineResult;
 
 public class User {
     private int currentLevel =1;
@@ -10,11 +14,19 @@ public class User {
     private String operator="+";
     private int starCount=0;
     private MainPresenter presenter;
+    private PlayGamePresenter playGamePresenter;
+    private StatusPresenter statusPresenter;
 
     public User(){}
 
     public User(MainPresenter presenter){
         this.presenter=presenter;
+    }
+    public User(PlayGamePresenter playGamePresenter){
+        this.playGamePresenter=playGamePresenter;
+    }
+    public User(StatusPresenter statusPresenter){
+        this.statusPresenter=statusPresenter;
     }
     public void saveUser(User user){
         FileHelper fH= new FileHelper(user);
