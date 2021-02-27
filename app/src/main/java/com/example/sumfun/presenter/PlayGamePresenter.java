@@ -34,7 +34,7 @@ public class PlayGamePresenter {
         playGameActivity.displayToast("Let's begin at level "+user.getCurrentLevel());
     }
     public void submitEquation(){
-        randomInt=(int)(Math.random()*10);
+       randomInt=(int)(Math.random()*10);
        playGameActivity.showEquation(currentLevel, op, randomInt);
 
     }
