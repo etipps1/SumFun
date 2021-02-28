@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.example.sumfun.R;
 import com.example.sumfun.presenter.PlayGamePresenter;
 
+import java.util.InputMismatchException;
+
 public class PlayGameActivity extends AppCompatActivity {
     private PlayGamePresenter playGamePresenter;
     //for playGameActivity
@@ -72,10 +74,20 @@ public class PlayGameActivity extends AppCompatActivity {
     }
 
     public void handleCheckBtn() {
+        try{
         String resp = response.getText().toString();
         String secNum = second_num.getText().toString();
         int second = Integer.parseInt(secNum);
         playGamePresenter.checkResponse(second, resp);
+        //clearText();
+            }
+        catch (Exception ex){
+            ex.getStackTrace();
+            displayToast("press next");
+        }
+
+
+
 
     }
 

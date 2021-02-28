@@ -16,55 +16,73 @@ public class PlayGamePresenter {
     int countCorrect;
 
 
-
-    public PlayGamePresenter(PlayGameActivity playGameActivity){
-        this.playGameActivity=playGameActivity;
+    public PlayGamePresenter(PlayGameActivity playGameActivity) {
+        this.playGameActivity = playGameActivity;
         user = new User();
         user.loadUser();
-        countLoop= user.getCount();
-        currentLevel=user.getCurrentLevel();
-        op=user.getOperator();
-        starCount=user.getStarCount();
-        countCorrect=user.getCountCorrect();
+        countLoop = user.getCount();
+        currentLevel = user.getCurrentLevel();
+        op = user.getOperator();
+        starCount = user.getStarCount();
+        countCorrect = user.getCountCorrect();
     }
 
-    public void saveData(){
+    public void saveData() {
         Log.d("logD", "saveData:inside ");
         user.saveUser(user);
     }
 
 
     //activate game
-    public void activateGame(){
+    public void activateGame() {
         //display correct things on screen
         Log.d("logD", "activateMenu: ");
-        playGameActivity.displayToast("Let's begin at level "+ user.getCurrentLevel());
+        playGameActivity.displayToast("Let's begin at level " + user.getCurrentLevel());
     }
-    public void submitEquation(){
-       randomInt=(int)(Math.random()*10);
-       playGameActivity.showEquation(currentLevel, op, randomInt);
+
+    public void submitEquation() {
+        randomInt = (int) (Math.random() * 10);
+        playGameActivity.showEquation(currentLevel, op, randomInt);
 
     }
-    public void checkResponse(int second, String response){
+
+    public void checkResponse(int second, String response) {
         if (response.trim().equals("")) {
             playGameActivity.displayToast("Enter a number");
-        }
-        else {
-            Log.d("logD", "checkResponse:before else "+ countLoop);
+        } else {
+            Log.d("logD", "checkResponse:before else " + countLoop);
             int parsedResponse = Integer.valueOf(response);
-            Addition addition= new Addition(currentLevel, second, parsedResponse, countLoop,countCorrect);
+            Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
             String toastText = addition.addLevel();
+            playGameActivity.displayToast(toastText);
             //get correctCount from Addition
             int updatedCount = addition.getCountLoop();
-            Log.d("logD", "checkResponse:updatedCount "+ updatedCount);
-            countLoop=updatedCount;
-            Log.d("logD", "checkResponse:countCorrect "+ countCorrect);
-            int updatedCountCorrect= addition.getCountCorrect();
+            Log.d("logD", "checkResponse:updatedCount " + updatedCount);
+            countLoop = updatedCount;
+
+            int updatedCountCorrect = addition.getCountCorrect();
+            Log.d("logD", "checkResponse:countCorrect " + updatedCountCorrect);
             //set localCount to correctCount
-            countCorrect=updatedCountCorrect;
+            countCorrect = updatedCountCorrect;
+            checkCountLoop(countLoop, countCorrect);
+            playGameActivity.clearText();
 
-            playGameActivity.displayToast(toastText);
 
+            //playGameActivity.displayToast(toastText);
+
+        }
+
+    }
+
+    public void checkCountLoop(int countLoop, int countCorrect) {
+        if (countLoop >= 10) {
+            if (countCorrect >= 7) {
+                currentLevel++;
+                starCount++;
+                playGameActivity.displayToast("You passed this level!");
+            } else {
+                playGameActivity.displayToast("Let's practice more.");
+            }
         }
 
     }

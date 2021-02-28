@@ -14,11 +14,11 @@ public class Addition {
     public Addition(){
 
     }
-    public Addition(int cLevel, int rand, int response, int count, int countCorrect) {
+    public Addition(int cLevel, int rand, int response, int countLoop, int countCorrect) {
         this.currentLevel = cLevel;
         this.second = rand;
         this.response = response;
-        this.countLoop= count;
+        this.countLoop= countLoop;
         this.countCorrect=countCorrect;
 
     }
