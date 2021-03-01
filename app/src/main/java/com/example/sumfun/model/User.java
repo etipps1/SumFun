@@ -6,6 +6,13 @@ import com.example.sumfun.presenter.MainPresenter;
 import com.example.sumfun.presenter.PlayGamePresenter;
 import com.example.sumfun.presenter.StatusPresenter;
 
+/**
+ * public class User
+ * currentLevel, count, starCount, countCorrect, currentStage ints
+ * operator string
+ * purpose: data object for player
+ * methods saveUser, loadUser and getter/setters
+ */
 
 
 public class User {
@@ -16,8 +23,8 @@ public class User {
     private int countCorrect=0;
     private int currentStage=1;
     private MainPresenter presenter;
-    private PlayGamePresenter playGamePresenter;
-    private StatusPresenter statusPresenter;
+    //private PlayGamePresenter playGamePresenter;
+    //private StatusPresenter statusPresenter;
 
     public User(){}
 

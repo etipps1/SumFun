@@ -19,13 +19,13 @@ import com.example.sumfun.presenter.PlayGamePresenter;
  */
 public class PlayGameActivity extends AppCompatActivity {
     //for playGameActivity
-    private PlayGamePresenter playGamePresenter;
+    PlayGamePresenter playGamePresenter;
 
-    private TextView first_num;
-    private TextView operator;
-    private TextView second_num;
-    private TextView equals;
-    private EditText response;
+    TextView first_num;
+    TextView operator;
+    TextView second_num;
+    TextView equals;
+    EditText response;
     Button check;
     Button next;
 

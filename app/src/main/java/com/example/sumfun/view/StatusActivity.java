@@ -12,12 +12,17 @@ import android.widget.Toast;
 import com.example.sumfun.R;
 import com.example.sumfun.presenter.StatusPresenter;
 
+/**
+ * public class StatusActivity extends AppCompatActivity
+ * statusPresenter StatusPresenter, message and starCountDisplay TextViews, starView ImageView
+ * purpose: display user current star count
+ */
 public class StatusActivity extends AppCompatActivity {
-    private StatusPresenter statusPresenter;
+    StatusPresenter statusPresenter;
    // private int starCount;
-    private TextView message;
-    private ImageView starView;
-    private TextView starCountDisplay;
+    TextView message;
+    ImageView starView;
+    TextView starCountDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +39,23 @@ public class StatusActivity extends AppCompatActivity {
 
 
     }
+
+    /**
+     * public method displayToast
+     * @param message string
+     * purpose: display Toast with message
+     */
     public void displayToast(String message){
         Toast toast=Toast.makeText(this, message, Toast.LENGTH_LONG);
        // toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);
         toast.show();
     }
 
+    /**
+     * public method showStatusDisplay
+     * @param starCnt int
+     * passes value of starCnt as String message of Toast
+     */
     public void showStatusDisplay(int starCnt){
         starCountDisplay.setText(String.valueOf(starCnt));
 

@@ -13,6 +13,10 @@ import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * public class FileHelper
+ * purpose: save User object and load User object with Gson/JSON
+ */
 public class FileHelper {
     User user;
 

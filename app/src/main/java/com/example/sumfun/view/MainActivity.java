@@ -16,11 +16,11 @@ import com.example.sumfun.R;
 import com.example.sumfun.presenter.MainPresenter;
 
 public class MainActivity extends AppCompatActivity {
-    private MainPresenter mainPresenter;
+    MainPresenter mainPresenter;
 
-    private Button bPlay;
-    private TextView welcome;
-    private ImageView star;
+    Button bPlay;
+    TextView welcome;
+    ImageView star;
 
 
     @Override

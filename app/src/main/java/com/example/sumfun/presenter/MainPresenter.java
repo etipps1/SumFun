@@ -13,14 +13,9 @@ public class MainPresenter {
 
     public MainPresenter(MainActivity mainActivity){
         this.mainActivity= mainActivity;
-        //change to regulate in user.loadUser
-       /* if (first){
-            user= new User();
-        }
-        else {*/
+
             user = new User();
             user.loadUser();
-       // }
     }
     public void saveData(User user){
         user.saveUser(user);
