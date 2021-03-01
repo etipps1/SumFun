@@ -106,18 +106,23 @@ public class PlayGamePresenter {
 
     /**
      * public method checkCountLoop
-     * @param countLoop int
-     * @param countCorrect int
+     * @param cntLoop int
+     * @param cntCorrect int
      *  purpose: check countLoop total and if 7 of 10 correct, pass to next level  and display toast
      */
-    public void checkCountLoop(int countLoop, int countCorrect) {
-        if (countLoop >= 10) {
-            if (countCorrect >= 7) {
+    public void checkCountLoop(int cntLoop, int cntCorrect) {
+        if (cntLoop > 10) {
+
+            if (cntCorrect >= 7) {
                 currentLevel++;
                 starCount++;
+                countCorrect=0;
+                countLoop=0;
                 playGameActivity.displayToast("You passed this level!");
             } else {
                 playGameActivity.displayToast("Let's practice more.");
+                countCorrect=0;
+                countLoop=0;
             }
         }
 

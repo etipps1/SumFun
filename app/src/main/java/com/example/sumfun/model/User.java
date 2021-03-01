@@ -24,7 +24,7 @@ public class User {
     public void saveUser(User user){
         Log.d("logD", "saveUser:inside ");
         FileHelper fH= new FileHelper(user);
-        fH.saveUser(user);
+        fH.saveUser();
 
     }
     public void loadUser(){

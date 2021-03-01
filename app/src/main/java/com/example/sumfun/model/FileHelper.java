@@ -25,7 +25,7 @@ public class FileHelper {
     }
 
 
-    public void saveUser(User user){
+    public void saveUser(){
         String filename="SumFunSavedUser.txt";
         Gson gson = new Gson();
         Log.d("logD", "saveUser: inside FH");
