@@ -3,8 +3,7 @@ package com.example.sumfun.model;
 import android.util.Log;
 
 import com.example.sumfun.presenter.MainPresenter;
-import com.example.sumfun.presenter.PlayGamePresenter;
-import com.example.sumfun.presenter.StatusPresenter;
+
 
 /**
  * public class User
@@ -23,8 +22,6 @@ public class User {
     private int countCorrect=0;
     private int currentStage=1;
     private MainPresenter presenter;
-    //private PlayGamePresenter playGamePresenter;
-    //private StatusPresenter statusPresenter;
 
     public User(){}
 

@@ -9,7 +9,6 @@ import com.example.sumfun.view.MainActivity;
 public class MainPresenter {
     private MainActivity mainActivity;
     private User user;
-    Boolean first=false;//change to regulate in user.loadUser
 
     public MainPresenter(MainActivity mainActivity){
         this.mainActivity= mainActivity;
@@ -17,8 +16,8 @@ public class MainPresenter {
             user = new User();
             user.loadUser();
     }
-    public void saveData(User user){
-        user.saveUser(user);
+    public void saveData(User u){
+        user.saveUser(u);
     }
 
     //activate menu

@@ -15,9 +15,6 @@ public class Addition {
     int countLoop;
     int countCorrect;
 
-    public Addition(){
-
-    }
 
     /**
      * constructor for Addition

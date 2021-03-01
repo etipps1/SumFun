@@ -60,7 +60,7 @@ public class FileHelper {
 
         Gson gson = new Gson();
         savedUser = gson.fromJson(userData, User.class);
-        Log.d("logD", "loadUser: "+savedUser);
+        Log.d("logD", "loadUser: "+ savedUser);
 
         return savedUser;
 
