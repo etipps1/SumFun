@@ -1,13 +1,11 @@
 package com.example.sumfun.presenter;
 
 /**
- * public class Addition
- * purpose: process equation and check for correct response
+ * Subtraction level class
+ * currentLevel, second, response, countLoop, countCorrect int
+ * toastText String
  */
-public class Addition {
-    //Boolean correct= false;
-    //Boolean passed_level= false;
-    //Boolean valid_response= false;
+public class Subtraction {
     int currentLevel;
     int second;
     String toastText;
@@ -15,19 +13,16 @@ public class Addition {
     int countLoop;
     int countCorrect;
 
-    public Addition(){
-
-    }
-
     /**
-     * constructor for Addition
+     * constructor for Subtraction
      * @param cLevel int
      * @param rand int
      * @param response int
      * @param countLoop int
      * @param countCorrect int
      */
-    public Addition(int cLevel, int rand, int response, int countLoop, int countCorrect) {
+
+    public Subtraction(int cLevel, int rand, int response, int countLoop, int countCorrect) {
         this.currentLevel = cLevel;
         this.second = rand;
         this.response = response;
@@ -37,35 +32,24 @@ public class Addition {
     }
 
     /**
-     * public method addLevel
+     * public subLevel
      * @return string
-     * purpose: check whether response is correct or not and send toast with message
+     * purpose: check equation for correct response and return toast message
      */
-    public String addLevel(){
-        //int count = 0;
-
-        if (response == currentLevel + second) {
-            //correct = true;
+    public String subLevel() {
+        if (response == currentLevel - second) {
             countCorrect++;
             countLoop++;
             toastText = "Correct";
-            // System.out.println("Correct");
-            //valid_response = false;
-
         } else {
             countLoop++;
             toastText = "Wrong";
-            //System.out.println("Wrong");
-            //valid_response = false;
-
         }
         return toastText;
-
-
     }
 
     /**
-     * getter for countLoop
+     * countLoop getter
      * @return countLoop
      */
     public int getCountLoop() {
@@ -73,10 +57,11 @@ public class Addition {
     }
 
     /**
-     * getter for countCorrect
-     * @return  countCorrect
+     * countCorrect getter
+     * @return countCorrect
      */
     public int getCountCorrect() {
         return countCorrect;
     }
+
 }

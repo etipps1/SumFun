@@ -5,6 +5,10 @@ import android.util.Log;
 import com.example.sumfun.model.User;
 import com.example.sumfun.view.PlayGameActivity;
 
+/**
+ * public class PlayGamePresenter
+ * purpose: controller for PlayGameActivity
+ */
 public class PlayGamePresenter {
     private PlayGameActivity playGameActivity;
     private User user;
@@ -14,6 +18,7 @@ public class PlayGamePresenter {
     String op;
     int starCount;
     int countCorrect;
+    int currentStage;
 
 
     public PlayGamePresenter(PlayGameActivity playGameActivity) {
@@ -27,12 +32,19 @@ public class PlayGamePresenter {
         countCorrect = user.getCountCorrect();
     }
 
+    /**
+     * public method saveData
+     * passes user object to user saveUser method
+     */
+
     public void saveData() {
         Log.d("logD", "saveData:inside ");
         user.saveUser(user);
     }
 
-
+    /**
+     * begins game with toast of current user level for addition
+     */
     //activate game
     public void activateGame() {
         //display correct things on screen
@@ -40,21 +52,41 @@ public class PlayGamePresenter {
         playGameActivity.displayToast("Let's begin at level " + user.getCurrentLevel());
     }
 
+    /**
+     * public method submitEquation
+     * purpose: send currentLevel as first number, operator, and randomInt as second number of equation
+     */
     public void submitEquation() {
         randomInt = (int) (Math.random() * 10);
         playGameActivity.showEquation(currentLevel, op, randomInt);
 
     }
 
+    /**
+     * public method checkResponse
+     * @param second int
+     * @param response string
+     *  purpose: checks response to verify not blank and if blank sends toast prompt
+     *  parses response, creates new instance of Addition class
+     *  gets correct or wrong toast from addLevel method of Addition class
+     *  displays toast message
+     *  updates countLoop and countCorrect
+     *  checks for next stage
+     *  clears equation values
+     */
     public void checkResponse(int second, String response) {
+        //checking for empty response and prompting for a number
         if (response.trim().equals("")) {
             playGameActivity.displayToast("Enter a number");
         } else {
             Log.d("logD", "checkResponse:before else " + countLoop);
             int parsedResponse = Integer.valueOf(response);
             Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
+            //get correct or wrong toast message from addLevel();
             String toastText = addition.addLevel();
+            //display toast message
             playGameActivity.displayToast(toastText);
+
             //get correctCount from Addition
             int updatedCount = addition.getCountLoop();
             Log.d("logD", "checkResponse:updatedCount " + updatedCount);
@@ -64,16 +96,20 @@ public class PlayGamePresenter {
             Log.d("logD", "checkResponse:countCorrect " + updatedCountCorrect);
             //set localCount to correctCount
             countCorrect = updatedCountCorrect;
+
             checkCountLoop(countLoop, countCorrect);
+            //clears equation values
             playGameActivity.clearText();
 
-
-            //playGameActivity.displayToast(toastText);
-
         }
-
     }
 
+    /**
+     * public method checkCountLoop
+     * @param countLoop int
+     * @param countCorrect int
+     *  purpose: check countLoop total and if 7 of 10 correct, pass to next level  and display toast
+     */
     public void checkCountLoop(int countLoop, int countCorrect) {
         if (countLoop >= 10) {
             if (countCorrect >= 7) {
@@ -85,6 +121,17 @@ public class PlayGamePresenter {
             }
         }
 
+    }
+
+    /**
+     * public method checkLevelLoop
+     * check addition level and if greater than 10, move to next stage of subtraction
+     */
+    public void checkLevelLoop(){
+        if (currentLevel>10){
+            currentStage=2;
+            currentLevel=10;
+        }
     }
 
 

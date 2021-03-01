@@ -13,18 +13,19 @@ import android.widget.Toast;
 import com.example.sumfun.R;
 import com.example.sumfun.presenter.PlayGamePresenter;
 
-import java.util.InputMismatchException;
-
+/**
+ * public class PlayGameActivity extends AppCompatActivity
+ * purpose: view for PlayGamePresenter
+ */
 public class PlayGameActivity extends AppCompatActivity {
-    private PlayGamePresenter playGamePresenter;
     //for playGameActivity
+    private PlayGamePresenter playGamePresenter;
 
     private TextView first_num;
     private TextView operator;
     private TextView second_num;
     private TextView equals;
     private EditText response;
-    //private int curLevel;
     Button check;
     Button next;
 
@@ -41,6 +42,8 @@ public class PlayGameActivity extends AppCompatActivity {
         next = findViewById(R.id.next);
 
         playGamePresenter = new PlayGamePresenter(this);
+
+        /*listener for check button*/
         check.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,6 +51,8 @@ public class PlayGameActivity extends AppCompatActivity {
             }
         });
 
+
+        /*listener for next button*/
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,13 +64,24 @@ public class PlayGameActivity extends AppCompatActivity {
 
 
     }
-
+/**
+ * public method displayToast
+ * @param message string
+ * purpose: to display message toast in center of screen
+ */
     public void displayToast(String message) {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
         toast.show();
     }
 
+    /**
+     * public method showEquation
+     * @param first int
+     * @param op string
+     * @param second int
+     * purpose: send correct values to display equation
+     */
     public void showEquation(int first, String op, int second) {
         first_num.setText(String.valueOf(first));
         operator.setText(op);
@@ -73,6 +89,10 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * public method handleCheckBtn
+     * purpose: pass values to checkResponse for validation
+     */
     public void handleCheckBtn() {
         try{
         String resp = response.getText().toString();
@@ -91,6 +111,10 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * pubic method clearText
+     * purpose: clear equation values
+     */
     public void clearText() {
         first_num.setText("");
         operator.setText("");
@@ -99,6 +123,10 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * public method handleNextBtn
+     * purpose: clear values on button click and populate with new equation
+     */
     public void handleNextBtn() {
         clearText();
         playGamePresenter.submitEquation();
