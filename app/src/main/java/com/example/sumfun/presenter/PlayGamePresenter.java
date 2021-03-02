@@ -30,6 +30,7 @@ public class PlayGamePresenter {
         op = user.getOperator();
         starCount = user.getStarCount();
         countCorrect = user.getCountCorrect();
+        currentStage=user.getCurrentStage();
     }
 
     /**
@@ -38,8 +39,14 @@ public class PlayGamePresenter {
      */
 
     public void saveData() {
+        user.setCount(countLoop);
+        user.setCurrentLevel(currentLevel);
+        user.setOperator(op);
+        user.setStarCount(starCount);
+        user.setCountCorrect(countCorrect);
+        user.setCurrentStage(currentStage);
         Log.d("logD", "saveData:inside ");
-        user.saveUser(user);
+        user.saveUser(this.user);
     }
 
     /**

@@ -5,9 +5,6 @@ package com.example.sumfun.presenter;
  * purpose: process equation and check for correct response
  */
 public class Addition {
-    //Boolean correct= false;
-    //Boolean passed_level= false;
-    //Boolean valid_response= false;
     int currentLevel;
     int second;
     String toastText;
@@ -39,21 +36,15 @@ public class Addition {
      * purpose: check whether response is correct or not and send toast with message
      */
     public String addLevel(){
-        //int count = 0;
 
         if (response == currentLevel + second) {
-            //correct = true;
             countCorrect++;
             countLoop++;
             toastText = "Correct";
-            // System.out.println("Correct");
-            //valid_response = false;
 
         } else {
             countLoop++;
             toastText = "Wrong";
-            //System.out.println("Wrong");
-            //valid_response = false;
 
         }
         return toastText;

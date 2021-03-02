@@ -2,8 +2,6 @@ package com.example.sumfun.model;
 
 import android.util.Log;
 
-import com.example.sumfun.presenter.MainPresenter;
-
 
 /**
  * public class User
@@ -21,13 +19,13 @@ public class User {
     private int starCount=0;
     private int countCorrect=0;
     private int currentStage=1;
-    private MainPresenter presenter;
+
 
     public User(){}
 
-    public void saveUser(User user){
+    public void saveUser(User u){
         Log.d("logD", "saveUser:inside ");
-        FileHelper fH= new FileHelper(user);
+        FileHelper fH= new FileHelper(u);
         fH.saveUser();
 
     }
@@ -71,14 +69,6 @@ public class User {
         this.starCount = starCount;
     }
 
-    public MainPresenter getPresenter() {
-        return presenter;
-    }
-
-    public void setPresenter(MainPresenter presenter) {
-        this.presenter = presenter;
-    }
-
     public int getCountCorrect() {
         return countCorrect;
     }
@@ -86,4 +76,11 @@ public class User {
     public void setCountCorrect(int countCorrect) {
         this.countCorrect = countCorrect;
     }
+    public int getCurrentStage() {
+        return currentStage;
+    }
+    public void setCurrentStage(int currentStage) {
+        this.currentStage = currentStage;
+    }
+
 }

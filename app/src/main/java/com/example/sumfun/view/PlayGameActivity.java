@@ -62,7 +62,6 @@ public class PlayGameActivity extends AppCompatActivity {
 
         playGamePresenter.activateGame();
 
-
     }
 /**
  * public method displayToast
@@ -132,11 +131,11 @@ public class PlayGameActivity extends AppCompatActivity {
         playGamePresenter.submitEquation();
 
     }
-/*
+
     @Override
     protected void onStop() {
         super.onStop();
         playGamePresenter.saveData();
     }
-*/
+
 }

@@ -9,11 +9,6 @@ public class StatusPresenter {
     private StatusActivity statusActivity;
     private User user;
 
-
-
-
-
-
     public StatusPresenter(StatusActivity statusActivity){
         this.statusActivity=statusActivity;
         user = new User();

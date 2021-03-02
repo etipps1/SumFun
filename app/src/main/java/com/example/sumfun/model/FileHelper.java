@@ -24,17 +24,13 @@ public class FileHelper {
         this.user=user;
     }
 
-    public User getUser() {
-        return user;
-    }
-
 
     public void saveUser(){
         String filename="SumFunSavedUser.txt";
         Gson gson = new Gson();
         Log.d("logD", "saveUser: inside FH");
         String userData = gson.toJson(user);
-        Log.d("logD", "saveUser: "+ userData);
+        Log.d("logD", "saveUser:userData= "+ userData);
         try(Writer w = new BufferedWriter(new OutputStreamWriter( new FileOutputStream(filename), "UTF-8"))) {
             w.write(userData);
         } catch (FileNotFoundException e) {
@@ -55,7 +51,6 @@ public class FileHelper {
             //getUser();
             e.printStackTrace();
             return savedUser;
-
         }
 
         Gson gson = new Gson();
@@ -63,7 +58,5 @@ public class FileHelper {
         Log.d("logD", "loadUser: "+ savedUser);
 
         return savedUser;
-
-
     }
 }
