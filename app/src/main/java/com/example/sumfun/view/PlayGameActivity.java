@@ -105,9 +105,6 @@ public class PlayGameActivity extends AppCompatActivity {
             displayToast("press next");
         }
 
-
-
-
     }
 
     /**

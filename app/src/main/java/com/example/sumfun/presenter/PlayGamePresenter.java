@@ -88,7 +88,9 @@ public class PlayGamePresenter {
         } else {
             Log.d("logD", "checkResponse:before else " + countLoop);
             int parsedResponse = Integer.valueOf(response);
-            Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
+            validateResponse(second, parsedResponse);
+
+            /*Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
             //get correct or wrong toast message from addLevel();
             String toastText = addition.addLevel();
             //display toast message
@@ -108,7 +110,64 @@ public class PlayGamePresenter {
             //clears equation values
             playGameActivity.clearText();
 
+             */
+
         }
+    }
+
+    /**
+     * public method validateResponse
+     * @param second int
+     * @param parsedResponse int
+     * purpose: substitute for interface to determine which class(level) for mathematical operation
+     */
+    public void validateResponse(int second, int parsedResponse){
+
+        if (op.equalsIgnoreCase("+")) {
+            Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
+            //get correct or wrong toast message from addLevel();
+            String toastText = addition.addLevel();
+            //display toast message
+            playGameActivity.displayToast(toastText);
+
+            //get correctCount from Addition
+            int updatedCount = addition.getCountLoop();
+            Log.d("logD", "checkResponse:updatedCount " + updatedCount);
+            countLoop = updatedCount;
+
+            int updatedCountCorrect = addition.getCountCorrect();
+            Log.d("logD", "checkResponse:countCorrect " + updatedCountCorrect);
+            //set localCount to correctCount
+            countCorrect = updatedCountCorrect;
+
+            checkCountLoop(countLoop, countCorrect);
+            //clears equation values
+            playGameActivity.clearText();
+        }
+        else if (op.equalsIgnoreCase("-")){
+            Subtraction subtraction = new Subtraction(currentLevel, second, parsedResponse, countLoop, countCorrect);
+            //get correct or wrong toast message from subLevel();
+            String toastText = subtraction.subLevel();
+            //display toast message
+            playGameActivity.displayToast(toastText);
+
+            //get correctCount from Subtraction
+            int updatedCount = subtraction.getCountLoop();
+            Log.d("logD", "checkResponse:updatedCount " + updatedCount);
+            countLoop = updatedCount;
+
+            int updatedCountCorrect = subtraction.getCountCorrect();
+            Log.d("logD", "checkResponse:countCorrect " + updatedCountCorrect);
+            //set localCount to correctCount
+            countCorrect = updatedCountCorrect;
+
+            checkCountLoop(countLoop, countCorrect);
+            //clears equation values
+            playGameActivity.clearText();
+
+        }
+
+
     }
 
     /**
@@ -140,13 +199,12 @@ public class PlayGamePresenter {
      * check addition level and if greater than 10, move to next stage of subtraction
      */
     public void checkLevelLoop(){
-        if (currentLevel>10){
+        if (currentLevel>10 && currentLevel<21){
             currentStage=2;
-            currentLevel=10;
+            op="-";
+
         }
+
     }
-
-
-
 
 }
