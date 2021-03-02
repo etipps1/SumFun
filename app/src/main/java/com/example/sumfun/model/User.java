@@ -1,5 +1,6 @@
 package com.example.sumfun.model;
 
+import android.content.Context;
 import android.util.Log;
 
 
@@ -23,16 +24,18 @@ public class User {
 
     public User(){}
 
-    public void saveUser(User u){
+    public void saveUser(Context context, User u){
+    //public void saveUser(User u){
         Log.d("logD", "saveUser:inside ");
-        FileHelper fH= new FileHelper(u);
-        fH.saveUser();
+        FileHelper fH= new FileHelper(context, u);
+        fH.saveUser2();
 
     }
-    public void loadUser(){
+    public void loadUser(Context context){
         //load default if no file
         Log.d("logD", "loadUser: ");
-        FileHelper.loadUser();
+        FileHelper fh= new FileHelper(context);
+        fh.loadUser2();
         Log.d("logD", "in loadUser");
 
     }

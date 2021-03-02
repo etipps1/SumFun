@@ -132,7 +132,7 @@ public class PlayGameActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        playGamePresenter.saveData();
+        playGamePresenter.saveData(this);
     }
 
 }

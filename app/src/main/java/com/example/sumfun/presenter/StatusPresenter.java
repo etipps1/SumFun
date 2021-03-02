@@ -12,7 +12,7 @@ public class StatusPresenter {
     public StatusPresenter(StatusActivity statusActivity){
         this.statusActivity=statusActivity;
         user = new User();
-        user.loadUser();
+        user.loadUser(this.statusActivity);
     }
 
     public void submitStatusDisplay(){

@@ -24,7 +24,7 @@ public class PlayGamePresenter {
     public PlayGamePresenter(PlayGameActivity playGameActivity) {
         this.playGameActivity = playGameActivity;
         user = new User();
-        user.loadUser();
+        user.loadUser(playGameActivity);
         countLoop = user.getCount();
         currentLevel = user.getCurrentLevel();
         op = user.getOperator();
@@ -37,8 +37,9 @@ public class PlayGamePresenter {
      * public method saveData
      * passes user object to user saveUser method
      */
+    public void saveData(PlayGameActivity playGameActivity){
 
-    public void saveData() {
+    //public void saveData() {
         user.setCount(countLoop);
         user.setCurrentLevel(currentLevel);
         user.setOperator(op);
@@ -46,7 +47,7 @@ public class PlayGamePresenter {
         user.setCountCorrect(countCorrect);
         user.setCurrentStage(currentStage);
         Log.d("logD", "saveData:inside ");
-        user.saveUser(this.user);
+        user.saveUser(playGameActivity, this.user);
     }
 
     /**

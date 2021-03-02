@@ -14,10 +14,10 @@ public class MainPresenter {
         this.mainActivity= mainActivity;
 
             user = new User();
-            user.loadUser();
+            user.loadUser(this.mainActivity);
     }
     public void saveData(User u){
-        user.saveUser(u);
+        user.saveUser(mainActivity, u);
     }
 
     //activate menu
