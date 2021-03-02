@@ -31,12 +31,13 @@ public class User {
         fH.saveUser2();
 
     }
-    public void loadUser(Context context){
+    public User loadUser(Context context){
         //load default if no file
         Log.d("logD", "loadUser: ");
         FileHelper fh= new FileHelper(context);
-        fh.loadUser2();
+        User newUser = fh.loadUser2();
         Log.d("logD", "in loadUser");
+        return newUser;
 
     }
 

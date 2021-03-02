@@ -24,7 +24,7 @@ public class PlayGamePresenter {
     public PlayGamePresenter(PlayGameActivity playGameActivity) {
         this.playGameActivity = playGameActivity;
         user = new User();
-        user.loadUser(playGameActivity);
+        user=user.loadUser(playGameActivity);
         countLoop = user.getCount();
         currentLevel = user.getCurrentLevel();
         op = user.getOperator();

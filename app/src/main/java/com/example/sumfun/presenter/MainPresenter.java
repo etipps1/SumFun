@@ -14,7 +14,7 @@ public class MainPresenter {
         this.mainActivity= mainActivity;
 
             user = new User();
-            user.loadUser(this.mainActivity);
+            user=user.loadUser(this.mainActivity);
     }
     public void saveData(User u){
         user.saveUser(mainActivity, u);

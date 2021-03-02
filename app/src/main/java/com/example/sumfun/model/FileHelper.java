@@ -24,9 +24,9 @@ public class FileHelper {
     Context context;
     User user;
 
-    public FileHelper(User user){
+    /*public FileHelper(User user){
     this.user=user;
-    }
+    }*/
     public FileHelper(Context context, User user) {
         this.context = context;
         this.user = user;
@@ -113,7 +113,7 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(context.openFileOutput("SumFunSavedUser.txt", Context.MODE_PRIVATE)));
             writer.write(userData);
             writer.close();
-            Log.d("logD", "saveUser2: Wrote data to SumFunSavedUser.txt");
+            Log.d("logD", "saveUser2: Wrote data to " +filename);
         } catch (IOException ioe) {
 
             Log.d("logD", ioe.toString());
@@ -132,11 +132,11 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
             Log.d("FileHelper", "Finished reading from file: "+filename);
             Gson gson = new Gson();
             savedUser = gson.fromJson(data, User.class);
-            Log.d("logD", "loadUser: " + savedUser);
+            Log.d("logD", "loadUser2: " + savedUser);
             return savedUser;
         }
         catch (IOException ioe) {
-            Log.e("FileHelper","Error reading from file ("+filename+"): "+ioe);
+            Log.e("FileHelper","Error loading from file ("+filename+"): "+ioe);
             return savedUser;
         }
 
