@@ -35,7 +35,7 @@ public class FileHelper {
         this.context=context;
     }
 
-
+/*
     public void saveUser(){
         String filename="SumFunSavedUser.txt";
         Gson gson = new Gson();
@@ -49,14 +49,14 @@ public class FileHelper {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 /*
     String filename = "myfile";
     String fileContents = "Hello world!";
 try (FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVATE)) {
         fos.write(fileContents.toByteArray());
     }*/
-
+/*
     public static User loadUser() {//context
         String userData = null;
         String filename = "SumFunSavedUser.txt";
@@ -76,7 +76,7 @@ try (FileOutputStream fos = context.openFileOutput(filename, Context.MODE_PRIVAT
 
         return savedUser;
     }
-
+**/
 /*
 
     FileInputStream fis = context.openFileInput(filename);
@@ -121,7 +121,7 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
     }
 
     public User loadUser2 () {
-        String userData = null;
+        //String userData = null;
         String filename = "SumFunSavedUser.txt";
         User savedUser = new User();
 
@@ -131,7 +131,7 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
             reader.close();
             Log.d("FileHelper", "Finished reading from file: "+filename);
             Gson gson = new Gson();
-            savedUser = gson.fromJson(userData, User.class);
+            savedUser = gson.fromJson(data, User.class);
             Log.d("logD", "loadUser: " + savedUser);
             return savedUser;
         }
