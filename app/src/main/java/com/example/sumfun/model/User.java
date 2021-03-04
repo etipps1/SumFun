@@ -19,7 +19,7 @@ public class User {
     private String operator="+";
     private int starCount=0;
     private int countCorrect=0;
-    private int currentStage=1;
+    private int currentStage=0;
 
 
     public User(){}

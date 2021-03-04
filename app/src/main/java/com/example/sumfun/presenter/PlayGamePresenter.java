@@ -90,6 +90,7 @@ public class PlayGamePresenter {
             Log.d("logD", "checkResponse:before else " + countLoop);
             int parsedResponse = Integer.valueOf(response);
             validateResponse(second, parsedResponse);
+            checkLevelLoop();
 
             /*Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
             //get correct or wrong toast message from addLevel();
@@ -126,8 +127,8 @@ public class PlayGamePresenter {
 
         if (op.equalsIgnoreCase("+")) {
             Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
-            //get correct or wrong toast message from addLevel();
-            String toastText = addition.addLevel();
+            //get correct or wrong toast message from adoMath();
+            String toastText = addition.doMath();
             //display toast message
             playGameActivity.displayToast(toastText);
 
@@ -147,8 +148,8 @@ public class PlayGamePresenter {
         }
         else if (op.equalsIgnoreCase("-")){
             Subtraction subtraction = new Subtraction(currentLevel, second, parsedResponse, countLoop, countCorrect);
-            //get correct or wrong toast message from subLevel();
-            String toastText = subtraction.subLevel();
+            //get correct or wrong toast message from doMath();
+            String toastText = subtraction.doMath();
             //display toast message
             playGameActivity.displayToast(toastText);
 
@@ -158,6 +159,28 @@ public class PlayGamePresenter {
             countLoop = updatedCount;
 
             int updatedCountCorrect = subtraction.getCountCorrect();
+            Log.d("logD", "checkResponse:countCorrect " + updatedCountCorrect);
+            //set localCount to correctCount
+            countCorrect = updatedCountCorrect;
+
+            checkCountLoop(countLoop, countCorrect);
+            //clears equation values
+            playGameActivity.clearText();
+
+        }
+        else if (op.equalsIgnoreCase("*")){
+            Multiplication multiplication = new Multiplication(currentLevel, second, parsedResponse, countLoop, countCorrect);
+            //get correct or wrong toast message from doMath();
+            String toastText = multiplication.doMath();
+            //display toast message
+            playGameActivity.displayToast(toastText);
+
+            //get correctCount from Multiplication
+            int updatedCount = multiplication.getCountLoop();
+            Log.d("logD", "checkResponse:updatedCount " + updatedCount);
+            countLoop = updatedCount;
+
+            int updatedCountCorrect = multiplication.getCountCorrect();
             Log.d("logD", "checkResponse:countCorrect " + updatedCountCorrect);
             //set localCount to correctCount
             countCorrect = updatedCountCorrect;
@@ -201,9 +224,23 @@ public class PlayGamePresenter {
      */
     public void checkLevelLoop(){
         if (currentLevel>10 && currentLevel<21){
-            currentStage=2;
+            if (op.equalsIgnoreCase("+")){
+            currentStage=1;
             op="-";
+            currentLevel=10;}
+            /*else if(op.equalsIgnoreCase("-")){
+                currentLevel++;
+            }*/
+            //currentStage=2;
+            //op="-";
 
+        } else if (currentLevel > 21 ){
+            op="*";
+            currentStage=2;
+            currentLevel=1;
+        }
+        else if (op.equalsIgnoreCase("*")){
+            currentLevel++;
         }
 
     }

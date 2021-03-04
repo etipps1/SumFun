@@ -13,7 +13,7 @@ import com.example.sumfun.presenter.StatusPresenter;
 /**
  * public class StatusActivity extends AppCompatActivity
  * statusPresenter StatusPresenter, message and starCountDisplay TextViews, starView ImageView
- * purpose: display user current star count
+ * purpose: display user current star count and badge count
  */
 public class StatusActivity extends AppCompatActivity {
     StatusPresenter statusPresenter;
@@ -21,6 +21,8 @@ public class StatusActivity extends AppCompatActivity {
     TextView message;
     ImageView starView;
     TextView starCountDisplay;
+    ImageView badgeView;
+    TextView badgeCountDisplay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +31,13 @@ public class StatusActivity extends AppCompatActivity {
         message= findViewById(R.id.starCountDisplay);
         starView=findViewById(R.id.starView);
         starCountDisplay=findViewById(R.id.starCountDisplay);
+        badgeView= findViewById(R.id.badgeView);
+        badgeCountDisplay= findViewById(R.id.badgeCountDisplay);
 
         statusPresenter= new StatusPresenter(this);
         statusPresenter.submitStatusDisplay();
         statusPresenter.activateStarCount();
+        statusPresenter.submitBadgeDisplay();
 
 
 
@@ -57,6 +62,9 @@ public class StatusActivity extends AppCompatActivity {
     public void showStatusDisplay(int starCnt){
         starCountDisplay.setText(String.valueOf(starCnt));
 
+    }
+    public void showBadgeDisplay(int badgeCnt){
+        badgeCountDisplay.setText(String.valueOf(badgeCnt));
     }
 
 }

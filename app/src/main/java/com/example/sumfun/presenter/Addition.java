@@ -35,7 +35,7 @@ public class Addition {
      * @return string
      * purpose: check whether response is correct or not and send toast with message
      */
-    public String addLevel(){
+    public String doMath(){
 
         if (response == currentLevel + second) {
             countCorrect++;

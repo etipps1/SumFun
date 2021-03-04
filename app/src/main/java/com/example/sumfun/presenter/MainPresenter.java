@@ -24,7 +24,8 @@ public class MainPresenter {
     public void activateMenu(){
         //display correct things on screen
         Log.d("logD", "activateMenu: ");
-        mainActivity.displayToast("hello player, level: "+user.getCurrentLevel());
+        //mainActivity.displayToast("hello player, level: "+user.getCurrentLevel());
+        mainActivity.displayToast("Hello!");
     }
 
 

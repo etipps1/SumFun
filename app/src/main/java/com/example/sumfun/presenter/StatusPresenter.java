@@ -20,6 +20,9 @@ public class StatusPresenter {
         statusActivity.showStatusDisplay(user.getStarCount());
 
     }
+    public void submitBadgeDisplay(){
+        statusActivity.showBadgeDisplay(user.getCurrentStage());
+    }
 
     //activate game
     public void activateStarCount(){

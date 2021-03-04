@@ -1,11 +1,9 @@
 package com.example.sumfun.presenter;
-
 /**
- * Subtraction level class
- * currentLevel, second, response, countLoop, countCorrect int
- * toastText String
+ * public class Multiplication
+ * purpose: process equation and check for correct response
  */
-public class Subtraction {
+public class Multiplication {
     int currentLevel;
     int second;
     String toastText;
@@ -13,16 +11,16 @@ public class Subtraction {
     int countLoop;
     int countCorrect;
 
+
     /**
-     * constructor for Subtraction
+     * constructor for Multiplication
      * @param cLevel int
      * @param rand int
      * @param response int
      * @param countLoop int
      * @param countCorrect int
      */
-
-    public Subtraction(int cLevel, int rand, int response, int countLoop, int countCorrect) {
+    public Multiplication(int cLevel, int rand, int response, int countLoop, int countCorrect) {
         this.currentLevel = cLevel;
         this.second = rand;
         this.response = response;
@@ -32,24 +30,29 @@ public class Subtraction {
     }
 
     /**
-     * public subLevel
+     * public method doMath
      * @return string
-     * purpose: check equation for correct response and return toast message
+     * purpose: check whether response is correct or not and send toast with message
      */
-    public String doMath() {
-        if (response == currentLevel - second) {
+    public String doMath(){
+
+        if (response == currentLevel * second) {
             countCorrect++;
             countLoop++;
             toastText = "Correct";
+
         } else {
             countLoop++;
             toastText = "Wrong";
+
         }
         return toastText;
+
+
     }
 
     /**
-     * countLoop getter
+     * getter for countLoop
      * @return countLoop
      */
     public int getCountLoop() {
@@ -57,11 +60,10 @@ public class Subtraction {
     }
 
     /**
-     * countCorrect getter
-     * @return countCorrect
+     * getter for countCorrect
+     * @return  countCorrect
      */
     public int getCountCorrect() {
         return countCorrect;
     }
-
 }
