@@ -2,7 +2,7 @@
     <string name="app_name">SumFun</string>
     <string name="title_activity_game">GameActivity</string>
     <string name="playGame">Play</string>
-    <string name="welcome">Welcome</string>
+    <string name="welcome">Let’s have SumFun!!!</string>
     <string name="addition">+</string>
     <string name="subtraction">-</string>
     <string name="equals">=</string>
@@ -10,7 +10,7 @@
     <string name="next">next</string>
     <string name="stars">stars</string>
     <string name="hello">Hello!</string>
-    <string name="star_message">Your stars</string>
+    <string name="star_message">Your Rewards</string>
 
 
 

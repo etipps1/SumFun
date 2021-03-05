@@ -9,11 +9,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="278dp"
+        android:layout_height="60dp"
         android:layout_marginTop="52dp"
-        android:background="#FFFFFF"
+        android:background="@drawable/custom_tv"
+        android:backgroundTint="#F0A0DD58"
         android:text="@string/star_message"
+        android:textAlignment="center"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,51 +24,52 @@
 
     <ImageView
         android:id="@+id/starView"
-        android:layout_width="256dp"
-        android:layout_height="348dp"
+        android:layout_width="185dp"
+        android:layout_height="190dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.409"
+        app:layout_constraintVertical_bias="0.277"
         app:srcCompat="@drawable/gold_star" />
 
     <TextView
         android:id="@+id/starCountDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="#FFFFFF"
+        android:backgroundTint="#F0A0DD58"
         android:text=" "
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/starView" />
 
     <ImageView
         android:id="@+id/badgeView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.896"
-        app:srcCompat="@android:drawable/btn_radio" />
+        app:layout_constraintVertical_bias="0.858"
+        app:srcCompat="@drawable/sumfunbadge" />
 
     <TextView
         android:id="@+id/badgeCountDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="349dp"
         android:layout_marginBottom="16dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/badgeView"
-        app:layout_constraintVertical_bias="0.82" />
+        app:layout_constraintVertical_bias="0.579" />
 </androidx.constraintlayout.widget.ConstraintLayout>

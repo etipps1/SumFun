@@ -9,91 +9,98 @@
 
     <TextView
         android:id="@+id/firstNum"
-        android:layout_width="53dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="28dp"
-        android:background="#FFFFFF"
+        android:layout_width="67dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/custom_tv"
         android:gravity="center"
+        app:layout_constraintEnd_toStartOf="@+id/operator"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/check"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:background="#FFFFFF"
-        android:text="@string/submit"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBaseline_toBaselineOf="@+id/response"
-        app:layout_constraintStart_toEndOf="@+id/response" />
-
-    <EditText
-        android:id="@+id/response"
-        android:layout_width="53dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginLeft="12dp"
-        android:layout_marginTop="28dp"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:inputType="number"
-        android:textSize="14sp"
-        app:layout_constraintStart_toEndOf="@+id/equals"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/operator"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
-        android:background="#FFFFFF"
+        android:layout_width="31dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="236dp"
+        android:background="@drawable/custom_tv"
+        android:backgroundTint="#F0A0DD58"
         android:gravity="center"
         android:text="@string/addition"
+        android:textColor="@color/black"
+        android:textSize="36sp"
         app:layout_constraintStart_toEndOf="@+id/firstNum"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/response"
+        android:layout_width="67dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="236dp"
+        android:background="@drawable/custom_tv"
+        android:gravity="center"
+        android:inputType="number"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/check"
+        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintStart_toEndOf="@+id/equals"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/equals"
+        android:layout_width="31dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="240dp"
+        android:background="@drawable/custom_tv"
+        android:backgroundTint="#F0A0DD58"
+        android:gravity="center"
+        android:text="@string/equals"
+        android:textColor="@color/black"
+        android:textSize="36sp"
+        app:layout_constraintStart_toEndOf="@+id/secondNum"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/secondNum"
-        android:layout_width="53dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="28dp"
-        android:background="#FFFFFF"
+        android:layout_width="67dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="236dp"
+        android:background="@drawable/custom_tv"
         android:gravity="center"
         android:text=" "
         app:layout_constraintStart_toEndOf="@+id/operator"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/equals"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
-        android:background="#FFFFFF"
-        android:gravity="center"
-        android:text="@string/equals"
-        app:layout_constraintStart_toEndOf="@+id/secondNum"
+    <Button
+        android:id="@+id/check"
+        android:layout_width="88dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="236dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/custom_btn"
+        android:text="@string/submit"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/next"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:background="@drawable/custom_btn"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.27" />
+        app:layout_constraintVertical_bias="0.603" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

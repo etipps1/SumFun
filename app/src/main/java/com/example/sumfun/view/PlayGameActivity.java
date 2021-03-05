@@ -1,7 +1,5 @@
 package com.example.sumfun.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -9,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sumfun.R;
 import com.example.sumfun.presenter.PlayGamePresenter;
@@ -70,7 +70,7 @@ public class PlayGameActivity extends AppCompatActivity {
  */
     public void displayToast(String message) {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.setGravity(Gravity.TOP,0,300);
         toast.show();
     }
 
@@ -113,7 +113,7 @@ public class PlayGameActivity extends AppCompatActivity {
      */
     public void clearText() {
         first_num.setText("");
-        operator.setText("");
+        //operator.setText("");
         second_num.setText("");
         response.setText("");
 
