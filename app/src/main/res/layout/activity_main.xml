@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.233"
-        app:srcCompat="@drawable/gold_star" />
+        app:srcCompat="@drawable/gold_star1" />
 
     <Button
         android:id="@+id/bPlay"
@@ -40,6 +40,7 @@
         android:backgroundTint="#F0A0DD58"
         android:text="@string/welcome"
         android:textAlignment="center"
+        android:textColor="@color/black"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
