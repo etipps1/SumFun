@@ -19,6 +19,8 @@ public class StatusPresenter {
     public void submitStatusDisplay(){
         statusActivity.showStatusDisplay(user.getStarCount());
 
+
+
     }
     public void submitBadgeDisplay(){
         statusActivity.showBadgeDisplay(user.getCurrentStage());
@@ -28,7 +30,7 @@ public class StatusPresenter {
     public void activateStarCount(){
         //display correct things on screen
         Log.d("logD", "activateStarCount: ");
-        statusActivity.displayToast("You have "+user.getStarCount()+ " stars!");
+        statusActivity.displayToast("Your stars: "+user.getStarCount());
     }
 }
 
