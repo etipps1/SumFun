@@ -234,14 +234,19 @@ public class PlayGamePresenter {
             //currentStage=2;
             //op="-";
 
-        } else if (currentLevel > 21 ){
+        } else if (currentLevel >= 21 ){
             op="*";
             currentStage=2;
             currentLevel=1;
-        }
-        else if (op.equalsIgnoreCase("*")){
+        }/*
+        else if (currentStage==2 && currentLevel >10){
+            currentStage=3;
+            op="/";
+            currentLevel=numerator;
+        }*/
+        /*else if (op.equalsIgnoreCase("*")&& currentLevel<=10){
             currentLevel++;
-        }
+        }*/
 
     }
 
