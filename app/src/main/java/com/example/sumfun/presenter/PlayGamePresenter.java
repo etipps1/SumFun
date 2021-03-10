@@ -26,13 +26,13 @@ public class PlayGamePresenter {
     public PlayGamePresenter(PlayGameActivity playGameActivity) {
         this.playGameActivity = playGameActivity;
         user = new User();
-        user=user.loadUser(playGameActivity);
+        user = user.loadUser(playGameActivity);
         countLoop = user.getCount();
         currentLevel = user.getCurrentLevel();
         op = user.getOperator();
         starCount = user.getStarCount();
         countCorrect = user.getCountCorrect();
-        currentStage=user.getCurrentStage();
+        currentStage = user.getCurrentStage();
         this.sc = new SoundCheck(playGameActivity); //this context needs to be called in from this class Pulled from here first
         this.sp = new SoundPlayer(playGameActivity);
     }
@@ -41,9 +41,9 @@ public class PlayGamePresenter {
      * public method saveData
      * passes user object to user saveUser method
      */
-    public void saveData(PlayGameActivity playGameActivity){
+    public void saveData(PlayGameActivity playGameActivity) {
 
-    //public void saveData() {
+        //public void saveData() {
         user.setCount(countLoop);
         user.setCurrentLevel(currentLevel);
         user.setOperator(op);
@@ -69,31 +69,39 @@ public class PlayGamePresenter {
      * purpose: send currentLevel as first number, operator, and randomInt as second number of equation
      */
     public void submitEquation() {
-        randomInt = (int) (Math.random() * 10);
-        playGameActivity.showEquation(currentLevel, op, randomInt);
+        //randomInt = (int) (Math.random() * 10);
+        if (op.equalsIgnoreCase("/")) {
+            randomInt = (int) ((Math.random() * 10)) + 1;
+            Log.d("logD", "submitEquation: "+ randomInt);
+            playGameActivity.showEquation((currentLevel * randomInt), op, currentLevel);
+        } else {
+            randomInt = (int) (Math.random() * 10);
+            playGameActivity.showEquation(currentLevel, op, randomInt);
+        }
 
     }
 
     /**
      * public method checkResponse
-     * @param second int
+     *
+     * @param second   int
      * @param response string
-     *  purpose: checks response to verify not blank and if blank sends toast prompt
-     *  parses response, creates new instance of Addition class
-     *  gets correct or wrong toast from addLevel method of Addition class
-     *  displays toast message
-     *  updates countLoop and countCorrect
-     *  checks for next stage
-     *  clears equation values
+     * purpose: checks response to verify not blank and if blank sends toast prompt
+     * parses response, creates new instance of Addition class
+     * gets correct or wrong toast from addLevel method of Addition class
+     * displays toast message
+     * updates countLoop and countCorrect
+     * checks for next stage
+     * clears equation values
      */
-    public void checkResponse(int second, String response) {
+    public void checkResponse(int second, String response, int first) {
         //checking for empty response and prompting for a number
         if (response.trim().equals("")) {
             playGameActivity.displayToast("Enter a number");
         } else {
             Log.d("logD", "checkResponse:before else " + countLoop);
             int parsedResponse = Integer.valueOf(response);
-            validateResponse(second, parsedResponse);
+            validateResponse(second, parsedResponse, first);
             checkLevelLoop();
 
             /*Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
@@ -123,15 +131,16 @@ public class PlayGamePresenter {
 
     /**
      * public method validateResponse
-     * @param second int
+     *
+     * @param second         int
      * @param parsedResponse int
-     * purpose: substitute for interface to determine which class(level) for mathematical operation
+     *                       purpose: substitute for interface to determine which class(level) for mathematical operation
      */
-    public void validateResponse(int second, int parsedResponse){
+    public void validateResponse(int second, int parsedResponse, int first) {
 
         if (op.equalsIgnoreCase("+")) {
             Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
-            //get correct or wrong toast message from adoMath();
+            //get correct or wrong toast message from doMath();
             String toastText = addition.doMath();
             //display toast message
             playGameActivity.displayToast(toastText);
@@ -150,8 +159,7 @@ public class PlayGamePresenter {
             checkCountLoop(countLoop, countCorrect);
             //clears equation values
             playGameActivity.clearText();
-        }
-        else if (op.equalsIgnoreCase("-")){
+        } else if (op.equalsIgnoreCase("-")) {
             Subtraction subtraction = new Subtraction(currentLevel, second, parsedResponse, countLoop, countCorrect);
             //get correct or wrong toast message from doMath();
             String toastText = subtraction.doMath();
@@ -173,8 +181,7 @@ public class PlayGamePresenter {
             //clears equation values
             playGameActivity.clearText();
 
-        }
-        else if (op.equalsIgnoreCase("*")){
+        } else if (op.equalsIgnoreCase("*")) {
             Multiplication multiplication = new Multiplication(currentLevel, second, parsedResponse, countLoop, countCorrect);
             //get correct or wrong toast message from doMath();
             String toastText = multiplication.doMath();
@@ -196,14 +203,37 @@ public class PlayGamePresenter {
             //clears equation values
             playGameActivity.clearText();
 
+        } else if (op.equalsIgnoreCase("/")) {
+            Division division = new Division(currentLevel, second, parsedResponse, countLoop, countCorrect, first);
+            //get correct or wrong toast message from doMath();
+            String toastText = division.doMath();
+            //display toast message
+            playGameActivity.displayToast(toastText);
+            sc.soundCheck(toastText);
+
+            //get correctCount from Multiplication
+            int updatedCount = division.getCountLoop();
+            Log.d("logD", "checkResponse:updatedCount " + updatedCount);
+            countLoop = updatedCount;
+
+            int updatedCountCorrect = division.getCountCorrect();
+            Log.d("logD", "checkResponse:countCorrect " + updatedCountCorrect);
+            //set localCount to correctCount
+            countCorrect = updatedCountCorrect;
+
+            checkCountLoop(countLoop, countCorrect);
+            //clears equation values
+            playGameActivity.clearText();
+
         }
     }
 
     /**
      * public method checkCountLoop
-     * @param cntLoop int
+     *
+     * @param cntLoop    int
      * @param cntCorrect int
-     *  purpose: check countLoop total and if 7 of 10 correct, pass to next level  and display toast
+     * purpose: check countLoop total and if 7 of 10 correct, pass to next level  and display toast
      */
     public void checkCountLoop(int cntLoop, int cntCorrect) {
         if (cntLoop > 10) {
@@ -211,47 +241,42 @@ public class PlayGamePresenter {
             if (cntCorrect >= 7) {
                 currentLevel++;
                 starCount++;
-                countCorrect=0;
-                countLoop=0;
+                countCorrect = 0;
+                countLoop = 0;
                 playGameActivity.displayToast("You passed this level!");
                 sp.playYaySound();
             } else {
                 playGameActivity.displayToast("Let's practice more.");
-                countCorrect=0;
-                countLoop=0;
+                countCorrect = 0;
+                countLoop = 0;
             }
         }
     }
 
     /**
      * public method checkLevelLoop
-     * check addition level and if greater than 10, move to next stage of subtraction
+     * check if addition level completed and move to next stage of subtraction
+     * check if subtraction level completed and move to multiplication
+     * check if multiplication level completed and move to division
      */
-    public void checkLevelLoop(){
-        if (currentLevel>10 && currentLevel<21){
-            if (op.equalsIgnoreCase("+")){
-            currentStage=1;
-            op="-";
-            currentLevel=10;}
-            /*else if(op.equalsIgnoreCase("-")){
-                currentLevel++;
-            }*/
-            //currentStage=2;
-            //op="-";
+    public void checkLevelLoop() {
+        if (currentLevel > 10 && currentLevel < 21) {
+            if (op.equalsIgnoreCase("+")) {
+                currentStage = 1;
+                op = "-";
+                currentLevel = 10;
+            } else if (currentStage == 2) {
+                currentStage = 3;
+                op = "/";
+                currentLevel = 1;
+            }
 
-        } else if (currentLevel >= 21 ){
-            op="*";
-            currentStage=2;
-            currentLevel=1;
-        }/*
-        else if (currentStage==2 && currentLevel >10){
-            currentStage=3;
-            op="/";
-            currentLevel=numerator;
-        }*/
-        /*else if (op.equalsIgnoreCase("*")&& currentLevel<=10){
-            currentLevel++;
-        }*/
+
+        } else if (currentLevel >= 21) {
+            op = "*";
+            currentStage = 2;
+            currentLevel = 1;
+        }
 
     }
 

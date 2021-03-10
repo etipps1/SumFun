@@ -10,6 +10,7 @@ public class Division {
     int response;
     int countLoop;
     int countCorrect;
+    int first;
 
 
     /**
@@ -20,12 +21,13 @@ public class Division {
      * @param countLoop int
      * @param countCorrect int
      */
-    public Division(int cLevel, int rand, int response, int countLoop, int countCorrect) {
+    public Division(int cLevel, int rand, int response, int countLoop, int countCorrect, int first) {
         this.currentLevel = cLevel;
         this.second = rand;
         this.response = response;
         this.countLoop= countLoop;
         this.countCorrect=countCorrect;
+        this.first= first;
 
     }
 
@@ -34,10 +36,10 @@ public class Division {
      * @return string
      * purpose: check whether response is correct or not and send toast with message
      */
-    //will need new logic to function properly, perhaps skip it
+    //will need new logic to function properly
     public String doMath(){
 
-        if (response == currentLevel / second) {
+        if (response == (first / currentLevel)) {
             countCorrect++;
             countLoop++;
             toastText = "Correct";

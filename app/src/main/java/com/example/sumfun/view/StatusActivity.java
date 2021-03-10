@@ -28,7 +28,7 @@ public class StatusActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_status);
-        message= findViewById(R.id.starCountDisplay);
+        //message= findViewById(R.id.starCountDisplay);
         starView=findViewById(R.id.starView);
         starCountDisplay=findViewById(R.id.starCountDisplay);
         badgeView= findViewById(R.id.badgeView);
@@ -57,12 +57,18 @@ public class StatusActivity extends AppCompatActivity {
     /**
      * public method showStatusDisplay
      * @param starCnt int
-     * passes value of starCnt as String message of Toast
+     * passes value of starCnt as String
      */
     public void showStatusDisplay(int starCnt){
         starCountDisplay.setText(String.valueOf(starCnt));
 
     }
+
+    /**
+     * public method showBadgeDisplay
+     * @param badgeCnt int
+     * passes value of badgeCnt as String
+     */
     public void showBadgeDisplay(int badgeCnt){
         badgeCountDisplay.setText(String.valueOf(badgeCnt));
     }

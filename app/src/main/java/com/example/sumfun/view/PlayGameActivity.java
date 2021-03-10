@@ -69,23 +69,26 @@ public class PlayGameActivity extends AppCompatActivity {
         playGamePresenter.activateGame();
 
     }
-/**
- * public method displayToast
- * @param message string
- * purpose: to display message toast in center of screen
- */
+
+    /**
+     * public method displayToast
+     *
+     * @param message string
+     *                purpose: to display message toast in center of screen
+     */
     public void displayToast(String message) {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
-        toast.setGravity(Gravity.TOP,0,300);
+        toast.setGravity(Gravity.TOP, 0, 300);
         toast.show();
     }
 
     /**
      * public method showEquation
-     * @param first int
-     * @param op string
+     *
+     * @param first  int
+     * @param op     string
      * @param second int
-     * purpose: send correct values to display equation
+     *               purpose: send correct values to display equation
      */
     public void showEquation(int first, String op, int second) {
         first_num.setText(String.valueOf(first));
@@ -99,14 +102,16 @@ public class PlayGameActivity extends AppCompatActivity {
      * purpose: pass values to checkResponse for validation
      */
     public void handleCheckBtn() {
-        try{
-        String resp = response.getText().toString();
-        String secNum = second_num.getText().toString();
-        int second = Integer.parseInt(secNum);
-        playGamePresenter.checkResponse(second, resp);
-        //clearText();
-            }
-        catch (Exception ex){
+        try {
+            String firNum = first_num.getText().toString();
+
+            String resp = response.getText().toString();
+            String secNum = second_num.getText().toString();
+            int second = Integer.parseInt(secNum);
+            int first = Integer.parseInt(firNum);
+            playGamePresenter.checkResponse(second, resp, first);
+            //clearText();
+        } catch (Exception ex) {
             ex.getStackTrace();
             displayToast("press next");
         }
