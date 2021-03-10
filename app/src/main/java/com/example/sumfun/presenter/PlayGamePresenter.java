@@ -19,6 +19,8 @@ public class PlayGamePresenter {
     int starCount;
     int countCorrect;
     int currentStage;
+    SoundCheck sc;
+    SoundPlayer sp;
 
 
     public PlayGamePresenter(PlayGameActivity playGameActivity) {
@@ -31,6 +33,8 @@ public class PlayGamePresenter {
         starCount = user.getStarCount();
         countCorrect = user.getCountCorrect();
         currentStage=user.getCurrentStage();
+        this.sc = new SoundCheck(playGameActivity); //this context needs to be called in from this class Pulled from here first
+        this.sp = new SoundPlayer(playGameActivity);
     }
 
     /**
@@ -131,6 +135,7 @@ public class PlayGamePresenter {
             String toastText = addition.doMath();
             //display toast message
             playGameActivity.displayToast(toastText);
+            sc.soundCheck(toastText);
 
             //get correctCount from Addition
             int updatedCount = addition.getCountLoop();
@@ -152,6 +157,7 @@ public class PlayGamePresenter {
             String toastText = subtraction.doMath();
             //display toast message
             playGameActivity.displayToast(toastText);
+            sc.soundCheck(toastText);
 
             //get correctCount from Subtraction
             int updatedCount = subtraction.getCountLoop();
@@ -174,6 +180,7 @@ public class PlayGamePresenter {
             String toastText = multiplication.doMath();
             //display toast message
             playGameActivity.displayToast(toastText);
+            sc.soundCheck(toastText);
 
             //get correctCount from Multiplication
             int updatedCount = multiplication.getCountLoop();
@@ -190,8 +197,6 @@ public class PlayGamePresenter {
             playGameActivity.clearText();
 
         }
-
-
     }
 
     /**
@@ -209,13 +214,13 @@ public class PlayGamePresenter {
                 countCorrect=0;
                 countLoop=0;
                 playGameActivity.displayToast("You passed this level!");
+                sp.playYaySound();
             } else {
                 playGameActivity.displayToast("Let's practice more.");
                 countCorrect=0;
                 countLoop=0;
             }
         }
-
     }
 
     /**

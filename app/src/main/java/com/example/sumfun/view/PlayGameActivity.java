@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sumfun.R;
 import com.example.sumfun.presenter.PlayGamePresenter;
+import com.example.sumfun.presenter.SoundCheck;
+import com.example.sumfun.presenter.SoundPlayer;
 
 /**
  * public class PlayGameActivity extends AppCompatActivity
@@ -28,6 +30,8 @@ public class PlayGameActivity extends AppCompatActivity {
     EditText response;
     Button check;
     Button next;
+    SoundCheck sc;
+    SoundPlayer sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +44,8 @@ public class PlayGameActivity extends AppCompatActivity {
         response = findViewById(R.id.response);
         check = findViewById(R.id.check);
         next = findViewById(R.id.next);
+        sc = new SoundCheck(this);  //this class is an activity so my variable is a context which is why I use this.
+        sp = new SoundPlayer(this);
 
         playGamePresenter = new PlayGamePresenter(this);
 
