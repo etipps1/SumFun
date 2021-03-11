@@ -3,7 +3,7 @@ package com.example.sumfun.presenter;
  * public class Division
  * purpose: process equation and check for correct response
  */
-public class Division {
+public class Division implements MathLevel{
     int currentLevel;
     int second;
     String toastText;
@@ -36,7 +36,7 @@ public class Division {
      * @return string
      * purpose: check whether response is correct or not and send toast with message
      */
-    //will need new logic to function properly
+
     public String doMath(){
 
         if (response == (first / currentLevel)) {

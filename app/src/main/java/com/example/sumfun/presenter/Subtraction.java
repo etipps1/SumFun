@@ -5,7 +5,7 @@ package com.example.sumfun.presenter;
  * currentLevel, second, response, countLoop, countCorrect int
  * toastText String
  */
-public class Subtraction {
+public class Subtraction implements MathLevel{
     int currentLevel;
     int second;
     String toastText;

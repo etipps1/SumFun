@@ -21,6 +21,7 @@ public class PlayGamePresenter {
     int currentStage;
     SoundCheck sc;
     SoundPlayer sp;
+    private MathLevel mL;
 
 
     public PlayGamePresenter(PlayGameActivity playGameActivity) {
@@ -35,6 +36,29 @@ public class PlayGamePresenter {
         currentStage = user.getCurrentStage();
         this.sc = new SoundCheck(playGameActivity); //this context needs to be called in from this class Pulled from here first
         this.sp = new SoundPlayer(playGameActivity);
+
+    }
+
+    /**
+     * public method selectMathLevel
+     * @param mL MathLevel
+     * purpose: select which MathLevel to use through interface
+     */
+
+    public void selectMathLevel(MathLevel mL) {
+        this.mL = mL;
+
+    }
+
+    /**
+     * public method doMath
+     * @return String
+     * purpose: returns String toast through interface
+     */
+
+    public String doMath() {
+        String toastString = mL.doMath();
+        return toastString;
     }
 
     /**
@@ -43,7 +67,6 @@ public class PlayGamePresenter {
      */
     public void saveData(PlayGameActivity playGameActivity) {
 
-        //public void saveData() {
         user.setCount(countLoop);
         user.setCurrentLevel(currentLevel);
         user.setOperator(op);
@@ -59,7 +82,7 @@ public class PlayGamePresenter {
      */
     //activate game
     public void activateGame() {
-        //display correct things on screen
+        //display correct data on screen
         Log.d("logD", "activateMenu: ");
         playGameActivity.displayToast("Let's begin at level " + user.getCurrentLevel());
     }
@@ -72,7 +95,7 @@ public class PlayGamePresenter {
         //randomInt = (int) (Math.random() * 10);
         if (op.equalsIgnoreCase("/")) {
             randomInt = (int) ((Math.random() * 10)) + 1;
-            Log.d("logD", "submitEquation: "+ randomInt);
+            Log.d("logD", "submitEquation: " + randomInt);
             playGameActivity.showEquation((currentLevel * randomInt), op, currentLevel);
         } else {
             randomInt = (int) (Math.random() * 10);
@@ -104,7 +127,8 @@ public class PlayGamePresenter {
             validateResponse(second, parsedResponse, first);
             checkLevelLoop();
 
-            /*Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
+            /*//moved to validateResponse();
+            Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
             //get correct or wrong toast message from addLevel();
             String toastText = addition.addLevel();
             //display toast message
@@ -134,9 +158,37 @@ public class PlayGamePresenter {
      *
      * @param second         int
      * @param parsedResponse int
-     *                       purpose: substitute for interface to determine which class(level) for mathematical operation
+     * purpose: use interface to determine which class(level) for mathematical operation
+     * return text for toast & sound, update countLoop & countCorrect, and clearText()
      */
     public void validateResponse(int second, int parsedResponse, int first) {
+
+        if (op.equalsIgnoreCase("+")) {
+            selectMathLevel(new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect));
+        } else if (op.equalsIgnoreCase("-")) {
+            selectMathLevel(new Subtraction(currentLevel, second, parsedResponse, countLoop, countCorrect));
+        } else if (op.equalsIgnoreCase("*")) {
+            selectMathLevel(new Multiplication(currentLevel, second, parsedResponse, countLoop, countCorrect));
+        } else if (op.equalsIgnoreCase("/")) {
+            selectMathLevel(new Division(currentLevel, second, parsedResponse, countLoop, countCorrect, first));
+        }
+        String toastText = mL.doMath();
+        playGameActivity.displayToast(toastText);
+        sc.soundCheck(toastText);
+        int updatedCount = mL.getCountLoop();
+        Log.d("logD", "checkResponse:updatedCount " + updatedCount);
+        countLoop = updatedCount;
+        int updatedCountCorrect = mL.getCountCorrect();
+        Log.d("logD", "checkResponse:countCorrect " + updatedCountCorrect);
+        //set localCount to correctCount
+        countCorrect = updatedCountCorrect;
+        checkCountLoop(countLoop, countCorrect);
+        //clears equation values
+        playGameActivity.clearText();
+
+        //replaced with previous code using interface
+
+/*
 
         if (op.equalsIgnoreCase("+")) {
             Addition addition = new Addition(currentLevel, second, parsedResponse, countLoop, countCorrect);
@@ -225,7 +277,7 @@ public class PlayGamePresenter {
             //clears equation values
             playGameActivity.clearText();
 
-        }
+        }*/
     }
 
     /**

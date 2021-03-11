@@ -4,7 +4,7 @@ package com.example.sumfun.presenter;
  * public class Addition
  * purpose: process equation and check for correct response
  */
-public class Addition {
+public class Addition implements MathLevel{
     int currentLevel;
     int second;
     String toastText;

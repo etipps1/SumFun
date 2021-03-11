@@ -3,7 +3,7 @@ package com.example.sumfun.presenter;
  * public class Multiplication
  * purpose: process equation and check for correct response
  */
-public class Multiplication {
+public class Multiplication implements MathLevel{
     int currentLevel;
     int second;
     String toastText;
