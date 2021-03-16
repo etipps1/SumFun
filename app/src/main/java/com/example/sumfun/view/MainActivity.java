@@ -14,12 +14,27 @@ import android.widget.Toast;
 import com.example.sumfun.R;
 import com.example.sumfun.presenter.MainPresenter;
 
+/**
+ * public class MainActivity extends AppCompatActivity
+ * MainPresenter mainPresenter
+ * Button bPlay, TextView welcome, ImageView star
+ * purpose: display and handle activity from main screen
+ */
+
 public class MainActivity extends AppCompatActivity {
     MainPresenter mainPresenter;
 
     Button bPlay;
     TextView welcome;
     ImageView star;
+
+    /**
+     * @Override protected onCreate
+     * @param savedInstanceState Bundle
+     * @return void
+     * purpose: begin Activity
+     *
+     */
 
 
     @Override
@@ -32,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         mainPresenter = new MainPresenter(this);
 
+        //check for click of bPlay
         bPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -40,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //check for click of star
         star.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,12 +66,24 @@ public class MainActivity extends AppCompatActivity {
         mainPresenter.activateMenu();
 
     }
+
+    /**
+     * public method handlePlayButton
+     * @return void
+     * purpose: pass intent to PlayGameActivity to begin on click
+     */
     public void handlePlayButton(){
         Log.d("logD", "handlePlayButton: inside");
         Intent intent = new Intent(this, PlayGameActivity.class);
         startActivity(intent);
 
     }
+
+    /**
+     * public method handleStarClicked
+     * @return void
+     * purpose: pass intent to StatusActivity to begin on click
+     */
     public void handleStarClicked()
     {
         Log.d("logD", "handleStarClicked: inside");
@@ -62,6 +91,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+    /**
+     * public method displayToast
+     * @param message String
+     * purpose: display toast with passed message
+     */
     public void displayToast(String message){
         Toast toast=Toast.makeText(this, message, Toast.LENGTH_SHORT);
        // toast.setGravity(Gravity.CENTER_VERTICAL, 0,0);

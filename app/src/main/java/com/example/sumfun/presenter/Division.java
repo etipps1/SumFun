@@ -2,6 +2,9 @@ package com.example.sumfun.presenter;
 /**
  * public class Division
  * purpose: process equation and check for correct response
+ * currentLevel, second, response, countLoop, countCorrect int
+ * toastText String
+ * implements MathLevel
  */
 public class Division implements MathLevel{
     int currentLevel;

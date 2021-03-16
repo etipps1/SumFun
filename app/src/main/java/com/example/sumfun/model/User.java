@@ -21,9 +21,18 @@ public class User {
     private int countCorrect=0;
     private int currentStage=0;
 
-
+    /**
+     * public constructor for User class
+     */
     public User(){}
 
+    /**
+     * public method saveUser
+     * @param context Context
+     * @param u User
+     * purpose: receive context an u and pass to FileHelper saveUser2
+     * @return void
+     */
     public void saveUser(Context context, User u){
     //public void saveUser(User u){
         Log.d("logD", "saveUser:inside ");
@@ -31,6 +40,13 @@ public class User {
         fH.saveUser2();
 
     }
+
+    /**
+     * public method loadUser
+     * @param context Context
+     * @return User
+     * purpose: get newUser from FileHelper loadUser2
+     */
     public User loadUser(Context context){
         //load default if no file
         Log.d("logD", "loadUser: ");
@@ -40,6 +56,9 @@ public class User {
         return newUser;
 
     }
+
+
+    /*getters and setters*/
 
     public int getCurrentLevel() {
         return currentLevel;

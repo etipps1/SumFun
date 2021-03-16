@@ -20,6 +20,7 @@ import java.io.OutputStreamWriter;
 /**
  * public class FileHelper
  * purpose: save User object and load User object with Gson/JSON
+ * Context context, User user
  */
 public class FileHelper {
     Context context;
@@ -28,10 +29,21 @@ public class FileHelper {
     /*public FileHelper(User user){
     this.user=user;
     }*/
+
+    /**
+     * public constructor for FileHelper class
+     * @param context Context
+     * @param user User
+     */
     public FileHelper(Context context, User user) {
         this.context = context;
         this.user = user;
     }
+
+    /**
+     * public constructor for FileHelper class
+     * @param context Context
+     */
     public FileHelper(Context context){
         this.context=context;
     }
@@ -98,6 +110,12 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
 
 
     //local public void saveFile(View view) {
+
+    /**
+     * public saveUser2
+     * @return void
+     * purpose: write user to file to save user
+     */
     public void saveUser2() {
 
 
@@ -121,6 +139,11 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
         }
     }
 
+    /**
+     * public method laodUser2
+     * @return User
+     * purpose: get user data from file
+     */
     public User loadUser2 () {
         //String userData = null;
         String filename = "SumFunSavedUser.txt";

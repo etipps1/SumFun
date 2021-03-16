@@ -3,6 +3,9 @@ package com.example.sumfun.presenter;
 /**
  * public class Addition
  * purpose: process equation and check for correct response
+ * int currentLevel, second, response, countLoop, countCorrect
+ * String toastText
+ * implements MathLevel
  */
 public class Addition implements MathLevel{
     int currentLevel;

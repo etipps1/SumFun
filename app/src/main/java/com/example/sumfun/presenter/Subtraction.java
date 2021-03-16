@@ -4,6 +4,8 @@ package com.example.sumfun.presenter;
  * Subtraction level class
  * currentLevel, second, response, countLoop, countCorrect int
  * toastText String
+ * purpose: process equation and check for correct response
+ * implements MathLevel
  */
 public class Subtraction implements MathLevel{
     int currentLevel;

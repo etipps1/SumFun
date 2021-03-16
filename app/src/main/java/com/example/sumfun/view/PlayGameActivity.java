@@ -18,6 +18,10 @@ import com.example.sumfun.presenter.SoundPlayer;
 /**
  * public class PlayGameActivity extends AppCompatActivity
  * purpose: view for PlayGamePresenter
+ * TextView first_num, operator, second_num, equals
+ * EditText response
+ * Button check, next
+ * SoundCheck sc, SoundPlayer sp
  */
 public class PlayGameActivity extends AppCompatActivity {
     //for playGameActivity
@@ -32,6 +36,12 @@ public class PlayGameActivity extends AppCompatActivity {
     Button next;
     SoundCheck sc;
     SoundPlayer sp;
+
+    /**
+     * @Override protected onCreate
+     * @param savedInstanceState Bundle
+     * @return void
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +82,9 @@ public class PlayGameActivity extends AppCompatActivity {
 
     /**
      * public method displayToast
-     *
      * @param message string
-     *                purpose: to display message toast in center of screen
+     * purpose: to display message toast in center of screen
+     * @return void
      */
     public void displayToast(String message) {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
@@ -84,11 +94,11 @@ public class PlayGameActivity extends AppCompatActivity {
 
     /**
      * public method showEquation
-     *
      * @param first  int
      * @param op     string
      * @param second int
-     *               purpose: send correct values to display equation
+     * purpose: send correct values to display equation
+     * @return void
      */
     public void showEquation(int first, String op, int second) {
         first_num.setText(String.valueOf(first));
@@ -100,6 +110,7 @@ public class PlayGameActivity extends AppCompatActivity {
     /**
      * public method handleCheckBtn
      * purpose: pass values to checkResponse for validation
+     * @return void
      */
     public void handleCheckBtn() {
         try {
@@ -121,6 +132,7 @@ public class PlayGameActivity extends AppCompatActivity {
     /**
      * pubic method clearText
      * purpose: clear equation values
+     * @return void
      */
     public void clearText() {
         first_num.setText("");
@@ -133,12 +145,19 @@ public class PlayGameActivity extends AppCompatActivity {
     /**
      * public method handleNextBtn
      * purpose: clear values on button click and populate with new equation
+     * @return void
      */
     public void handleNextBtn() {
         clearText();
         playGamePresenter.submitEquation();
 
     }
+
+    /**
+     * @Override protected onStop
+     * @return void
+     * purpose: saveData on Stop
+     */
 
     @Override
     protected void onStop() {

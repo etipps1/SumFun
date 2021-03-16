@@ -8,6 +8,15 @@ import android.os.Build;
 
 import com.example.sumfun.R;
 
+/**
+ * public SoundPlayer
+ * purpose: play sounds
+ * private AudioAttributes audioAttribute,
+ * private static SoundPool soundPool
+ * private static int, correctAns, wrongAns, yay
+ * final int SOUND_POOL_MAX
+ */
+
 public class SoundPlayer {
 
     private AudioAttributes audioAttributes;
@@ -18,6 +27,12 @@ public class SoundPlayer {
     private static int wrongAns;
     private static int yay;
 //    private static int award;
+
+    /**
+     * public SoundPlayer constructor
+     * @param context Context
+     * purpose:
+     */
 
     public SoundPlayer(Context context) {
 
@@ -52,14 +67,32 @@ public class SoundPlayer {
         //https://creativecommons.org/publicdomain/zero/1.0/ there were no changes made to this sound.
     }
 
+    /**
+     * public method playCorrectSound
+     * @return void
+     * purpose:
+     */
+
     public void playCorrectSound() {
         //play(int soundID, float leftVolume, float rightVolume, int priority, int loop, float rate)
         soundPool.play(correctAns, 1.0f, 1.0f, 1, 0, 1.0f);
     }
 
+    /**
+     * public method playWrongSound
+     * @return void
+     * purpose:
+     */
+
     public void playWrongSound() {
         soundPool.play(wrongAns, 1.0f, 1.0f, 1, 0, 1.0f);
     }
+
+    /**
+     * public method playYaySound
+     * @return void
+     * purpose:
+     */
     public void playYaySound() {
         soundPool.play(yay, 1.0f, 1.0f, 1, 0, 1.0f);
     }
