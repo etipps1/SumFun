@@ -12,6 +12,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sumfun.R;
 
+/**
+ * public class CongratsActivity extends AppCompatActivity
+ * purpose: display congratulations when all levels are completed
+ * TextViews commentTextView, congratsTextView
+ * ImageView logoTextView
+ */
+
 public class CongratsActivity extends AppCompatActivity {
 
     @Override

@@ -155,6 +155,12 @@ public class PlayGameActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * public method displayCongrats
+     * @return void
+     * purpose: send intent to CongratsActivity when all levels are completed
+     */
+
     public void displayCongrats(){
         Log.d("logD", "displayCongrats: ");
         Intent intent= new Intent(this, CongratsActivity.class);

@@ -342,6 +342,9 @@ public class PlayGamePresenter {
             }
             else if (currentStage ==3 ){
                 playGameActivity.displayCongrats();
+                currentLevel=1;
+                currentStage=0;
+                op = "+";
             }
 
 
