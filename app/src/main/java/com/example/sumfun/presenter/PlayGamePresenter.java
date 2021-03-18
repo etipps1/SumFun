@@ -97,7 +97,7 @@ public class PlayGamePresenter {
     public void activateGame() {
         //display correct data on screen
         Log.d("logD", "activateMenu: ");
-        playGameActivity.displayToast("Let's begin at level " + user.getCurrentLevel());
+        playGameActivity.displayToast("Let's begin with " + user.getCurrentLevel());
     }
 
     /**
@@ -339,6 +339,9 @@ public class PlayGamePresenter {
                 currentStage = 3;
                 op = "/";
                 currentLevel = 1;
+            }
+            else if (currentStage ==3 ){
+                playGameActivity.displayCongrats();
             }
 
 

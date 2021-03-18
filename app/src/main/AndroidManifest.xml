@@ -10,21 +10,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SumFun">
-
-        <activity android:name=".view.PlayGameActivity"
+        <activity android:name=".view.CongratsActivity"></activity>
+        <activity
+            android:name=".view.PlayGameActivity"
             android:parentActivityName=".view.MainActivity">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".view.MainActivity" /></activity>
-
-        <activity android:name=".view.StatusActivity"
+                android:value=".view.MainActivity" />
+        </activity>
+        <activity
+            android:name=".view.StatusActivity"
             android:parentActivityName=".view.MainActivity">
-        <!-- The meta-data tag is required if you support API level 15 and lower -->
-        <meta-data
-            android:name="android.support.PARENT_ACTIVITY"
-            android:value=".view.MainActivity" /></activity>
 
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".view.MainActivity" />
+        </activity>
         <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +36,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

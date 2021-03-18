@@ -1,6 +1,8 @@
 package com.example.sumfun.view;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -150,6 +152,13 @@ public class PlayGameActivity extends AppCompatActivity {
     public void handleNextBtn() {
         clearText();
         playGamePresenter.submitEquation();
+
+    }
+
+    public void displayCongrats(){
+        Log.d("logD", "displayCongrats: ");
+        Intent intent= new Intent(this, CongratsActivity.class);
+        startActivity(intent);
 
     }
 
