@@ -11,6 +11,8 @@
     <string name="stars">stars</string>
     <string name="hello">Hello!</string>
     <string name="star_message">Your Rewards</string>
+    <string name="congrats">Congratulations!!!</string>
+    <string name="commentCongrats">You did a good job, keep having fun!!!</string>
 
 
 </resources>
