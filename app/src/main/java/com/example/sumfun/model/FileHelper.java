@@ -113,7 +113,6 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
 
     /**
      * public saveUser2
-     * @return void
      * purpose: write user to file to save user
      */
     public void saveUser2() {
@@ -140,7 +139,7 @@ try (BufferedReader reader = new BufferedReader(inputStreamReader)) {
     }
 
     /**
-     * public method laodUser2
+     * public method loadUser2
      * @return User
      * purpose: get user data from file
      */

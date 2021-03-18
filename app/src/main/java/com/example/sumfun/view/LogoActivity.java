@@ -13,6 +13,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.sumfun.R;
 
+/**
+ * public class LogoActivity extends AppCompatActivity
+ * Animations animation1, animation2
+ * TextViews byTextView, teamTextView
+ * ImageView logoImageView
+ * purpose:
+ */
 public class LogoActivity extends AppCompatActivity {
 
     @Override

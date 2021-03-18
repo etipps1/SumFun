@@ -69,7 +69,6 @@ public class SoundPlayer {
 
     /**
      * public method playCorrectSound
-     * @return void
      * purpose:
      */
 
@@ -80,7 +79,6 @@ public class SoundPlayer {
 
     /**
      * public method playWrongSound
-     * @return void
      * purpose:
      */
 
@@ -90,7 +88,6 @@ public class SoundPlayer {
 
     /**
      * public method playYaySound
-     * @return void
      * purpose:
      */
     public void playYaySound() {

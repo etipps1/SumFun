@@ -32,7 +32,6 @@ public class MainPresenter {
     /**
      * public method saveData
      * @param u User
-     * @return void
      * purpose: call user.saveUser() and pass mainActivity and current u state
      */
     public void saveData(User u){
@@ -42,7 +41,6 @@ public class MainPresenter {
     //activate menu
     /**
      * public method activateMenu
-     * @return void
      * purpose: display Hello toast on mainActivity
      */
     public void activateMenu(){

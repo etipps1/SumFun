@@ -39,12 +39,6 @@ public class PlayGameActivity extends AppCompatActivity {
     SoundCheck sc;
     SoundPlayer sp;
 
-    /**
-     * @Override protected onCreate
-     * @param savedInstanceState Bundle
-     * @return void
-     */
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +80,6 @@ public class PlayGameActivity extends AppCompatActivity {
      * public method displayToast
      * @param message string
      * purpose: to display message toast in center of screen
-     * @return void
      */
     public void displayToast(String message) {
         Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
@@ -97,10 +90,9 @@ public class PlayGameActivity extends AppCompatActivity {
     /**
      * public method showEquation
      * @param first  int
-     * @param op     string
+     * @param op string
      * @param second int
      * purpose: send correct values to display equation
-     * @return void
      */
     public void showEquation(int first, String op, int second) {
         first_num.setText(String.valueOf(first));
@@ -112,7 +104,6 @@ public class PlayGameActivity extends AppCompatActivity {
     /**
      * public method handleCheckBtn
      * purpose: pass values to checkResponse for validation
-     * @return void
      */
     public void handleCheckBtn() {
         try {
@@ -134,7 +125,6 @@ public class PlayGameActivity extends AppCompatActivity {
     /**
      * pubic method clearText
      * purpose: clear equation values
-     * @return void
      */
     public void clearText() {
         first_num.setText("");
@@ -147,7 +137,6 @@ public class PlayGameActivity extends AppCompatActivity {
     /**
      * public method handleNextBtn
      * purpose: clear values on button click and populate with new equation
-     * @return void
      */
     public void handleNextBtn() {
         clearText();
@@ -157,7 +146,6 @@ public class PlayGameActivity extends AppCompatActivity {
 
     /**
      * public method displayCongrats
-     * @return void
      * purpose: send intent to CongratsActivity when all levels are completed
      */
 
@@ -169,8 +157,7 @@ public class PlayGameActivity extends AppCompatActivity {
     }
 
     /**
-     * @Override protected onStop
-     * @return void
+     * Override protected onStop
      * purpose: saveData on Stop
      */
 

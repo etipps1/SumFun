@@ -31,7 +31,6 @@ public class User {
      * @param context Context
      * @param u User
      * purpose: receive context an u and pass to FileHelper saveUser2
-     * @return void
      */
     public void saveUser(Context context, User u){
     //public void saveUser(User u){

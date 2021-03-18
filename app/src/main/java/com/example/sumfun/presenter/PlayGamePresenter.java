@@ -52,7 +52,6 @@ public class PlayGamePresenter {
      * public method selectMathLevel
      * @param mL MathLevel
      * purpose: select which MathLevel to use through interface
-     * @return void
      */
 
     public void selectMathLevel(MathLevel mL) {
@@ -74,7 +73,6 @@ public class PlayGamePresenter {
     /**
      * public method saveData
      * passes user object to user saveUser method
-     * @return void
      */
     public void saveData(PlayGameActivity playGameActivity) {
 
@@ -91,7 +89,6 @@ public class PlayGamePresenter {
     /**
      * public activateGame
      * begins game with toast of current user level for addition
-     * @return void
      */
     //activate game
     public void activateGame() {
@@ -103,7 +100,6 @@ public class PlayGamePresenter {
     /**
      * public method submitEquation
      * purpose: send currentLevel as first number, operator, and randomInt as second number of equation
-     * @return void
      */
     public void submitEquation() {
         //randomInt = (int) (Math.random() * 10);
@@ -123,7 +119,6 @@ public class PlayGamePresenter {
      *
      * @param second   int
      * @param response string
-     * @return void
      * purpose: checks response to verify not blank and if blank sends toast prompt
      * parses response, creates new instance of Addition class
      * gets correct or wrong toast from addLevel method of Addition class
@@ -173,7 +168,6 @@ public class PlayGamePresenter {
      *
      * @param second         int
      * @param parsedResponse int
-     * @return void
      * purpose: use interface to determine which class(level) for mathematical operation
      * return text for toast & sound, update countLoop & countCorrect, and clearText()
      */
@@ -301,7 +295,6 @@ public class PlayGamePresenter {
      *
      * @param cntLoop    int
      * @param cntCorrect int
-     * @return void
      * purpose: check countLoop total and if 7 of 10 correct, pass to next level  and display toast
      */
     public void checkCountLoop(int cntLoop, int cntCorrect) {
@@ -327,7 +320,6 @@ public class PlayGamePresenter {
      * check if addition level completed and move to next stage of subtraction
      * check if subtraction level completed and move to multiplication
      * check if multiplication level completed and move to division
-     * @return void
      */
     public void checkLevelLoop() {
         if (currentLevel > 10 && currentLevel < 21) {

@@ -24,11 +24,6 @@ public class StatusActivity extends AppCompatActivity {
     ImageView badgeView;
     TextView badgeCountDisplay;
 
-    /**
-     * @Override protected onCreate
-     * @param savedInstanceState Bundle
-     * @return void
-     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +48,6 @@ public class StatusActivity extends AppCompatActivity {
      * public method displayToast
      * @param message string
      * purpose: display Toast with message
-     * @return void
      */
     public void displayToast(String message){
         Toast toast=Toast.makeText(this, message, Toast.LENGTH_LONG);
@@ -65,7 +59,6 @@ public class StatusActivity extends AppCompatActivity {
      * public method showStatusDisplay
      * @param starCnt int
      * passes value of starCnt as String
-     * @return void
      */
     public void showStatusDisplay(int starCnt){
         starCountDisplay.setText(String.valueOf(starCnt));
@@ -76,7 +69,6 @@ public class StatusActivity extends AppCompatActivity {
      * public method showBadgeDisplay
      * @param badgeCnt int
      * passes value of badgeCnt as String
-     * @return void
      */
     public void showBadgeDisplay(int badgeCnt){
         badgeCountDisplay.setText(String.valueOf(badgeCnt));

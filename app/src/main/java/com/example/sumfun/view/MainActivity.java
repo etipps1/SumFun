@@ -28,15 +28,6 @@ public class MainActivity extends AppCompatActivity {
     TextView welcome;
     ImageView star;
 
-    /**
-     * @Override protected onCreate
-     * @param savedInstanceState Bundle
-     * @return void
-     * purpose: begin Activity
-     *
-     */
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * public method handlePlayButton
-     * @return void
      * purpose: pass intent to PlayGameActivity to begin on click
      */
     public void handlePlayButton(){
@@ -81,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * public method handleStarClicked
-     * @return void
      * purpose: pass intent to StatusActivity to begin on click
      */
     public void handleStarClicked()

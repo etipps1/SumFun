@@ -59,7 +59,7 @@ public class Division implements MathLevel{
 
     /**
      * getter for countLoop
-     * @return countLoop
+     * @return countLoop int
      */
     public int getCountLoop() {
         return countLoop;
@@ -67,7 +67,7 @@ public class Division implements MathLevel{
 
     /**
      * getter for countCorrect
-     * @return  countCorrect
+     * @return  countCorrect int
      */
     public int getCountCorrect() {
         return countCorrect;
