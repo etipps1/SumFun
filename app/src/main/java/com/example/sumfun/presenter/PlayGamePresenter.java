@@ -344,6 +344,7 @@ public class PlayGamePresenter {
                 playGameActivity.displayCongrats();
                 currentLevel=1;
                 currentStage=0;
+                starCount=0;
                 op = "+";
             }
 
