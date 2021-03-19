@@ -13,6 +13,9 @@
     <string name="star_message">Your Rewards</string>
     <string name="congrats">Congratulations!!!</string>
     <string name="commentCongrats">You did a good job, keep having fun!!!</string>
+    <string name="blank">" "</string>
+    <string name="by">by</string>
+    <string name="team">Team15</string>
 
 
 </resources>

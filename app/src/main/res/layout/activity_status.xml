@@ -70,7 +70,7 @@
         android:layout_marginTop="8dp"
         android:background="#FFFFFF"
         android:backgroundTint="#F0A0DD58"
-        android:text=" "
+        android:text="@string/blank"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24sp"
