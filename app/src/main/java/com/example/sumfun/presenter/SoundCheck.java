@@ -4,7 +4,7 @@ import android.content.Context;
 
 /**
  * public class SoundCheck
- * purpose:
+ * purpose: check if answer is correct to play correct sound or if not correct to play wrong sound.
  */
 
 public class SoundCheck {
@@ -21,7 +21,8 @@ public class SoundCheck {
     /**
      * public method SoundCheck
      * @param toastText String
-     * purpose:
+     * purpose: pulls toast that states if answer is correct or wrong and if toast is correct
+     * plays the correct answer sound, else plays the wrong answer sound.
      */
     public void soundCheck(String toastText){
         if (toastText.equals("Correct")) { //don't compare strings with == use equal() java doesn't like it.

@@ -31,7 +31,8 @@ public class SoundPlayer {
     /**
      * public SoundPlayer constructor
      * @param context Context
-     * purpose:
+     * purpose: build attribute so it sound has all it requires to play correctly, for a game.
+     * also make sure credit is given to those that created the free sounds.
      */
 
     public SoundPlayer(Context context) {
@@ -69,7 +70,7 @@ public class SoundPlayer {
 
     /**
      * public method playCorrectSound
-     * purpose:
+     * purpose: function that plays the sound when called
      */
 
     public void playCorrectSound() {
@@ -79,7 +80,7 @@ public class SoundPlayer {
 
     /**
      * public method playWrongSound
-     * purpose:
+     * purpose: function that plays the sound when called
      */
 
     public void playWrongSound() {
@@ -88,12 +89,12 @@ public class SoundPlayer {
 
     /**
      * public method playYaySound
-     * purpose:
+     * purpose: function that plays the sound when called
      */
     public void playYaySound() {
         soundPool.play(yay, 1.0f, 1.0f, 1, 0, 1.0f);
     }
 //    public void playAwardSound() {
 //        soundPool.play(award, 1.0f, 1.0f, 1, 0, 1.0f);
-//    } this will be added to the badge when awarded
+//    } this may be added to the badge when awarded
 }
