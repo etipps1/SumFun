@@ -18,7 +18,7 @@ import com.example.sumfun.R;
  * Animations animation1, animation2
  * TextViews byTextView, teamTextView
  * ImageView logoImageView
- * purpose:
+ * purpose: display a welcome screen with the logo and the team who built the app
  */
 public class LogoActivity extends AppCompatActivity {
 
